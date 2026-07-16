@@ -44,18 +44,24 @@ namespace FetchCaution
                     foreach (var fileName in fileNames)
                     {
                         var newUrl = url.Substring(0, url.LastIndexOf('/') + 1) + fileName;
-                        var cautions = fetchCautions(newUrl);
+                        var cautions = FetchCautions(newUrl);
                         cautionList.AddRange(cautions);
                     }
 
                     var columnNames = new List<string> { "DMC", "Title", "CautionText" };
 
                     Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+#if DEBUG
                     var excelInstance = ExcelUtility.CreateExcelWithColumns(txtOutPutPath.Text, columnNames, "Cautions", "NoCautions");
+#else
+                    var excelInstance = ExcelUtility.CreateExcelWithColumns(txtOutPutPath.Text, columnNames, "Cautions");
+#endif
                     var allCautions = cautionList.Where(c => c.CautionText != "No Caution Text Found.").ToList();
                     var noCautions = cautionList.Where(c => c.CautionText == "No Caution Text Found.").ToList();
                     ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, allCautions, "Cautions");
+#if DEBUG
                     ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, noCautions, "NoCautions");
+#endif
                     excelInstance.Save();
 
                     MessageBox.Show("Finished Fetching Cautions");
@@ -74,7 +80,6 @@ namespace FetchCaution
         }
 
 
-        //TODO - progress bar, open excel file after finish
         public bool ValidateOutputFolder(TextBox textBox)
         {
             string path = textBox.Text?.Trim();
@@ -226,7 +231,7 @@ namespace FetchCaution
             return lst;
         }
 
-        private List<Caution> fetchCautions(string url)
+        private List<Caution> FetchCautions(string url)
         {
             var web = new HtmlWeb();
             var doc = web.Load(url);
@@ -243,27 +248,17 @@ namespace FetchCaution
                 title = h1Node.InnerText.Trim();
             }
 
-            // Get all li nodes
-            var liNodes = doc.DocumentNode.SelectNodes("//li");
+            var cautionNodes = doc.DocumentNode.SelectNodes(
+    ".//div[contains(@class,'cautionOuterContainer')]//div[contains(concat(' ', normalize-space(@class), ' '), ' cautionText ')]");
 
             var cautionsText = new List<string>();
 
-            if (liNodes != null)
+            if (cautionNodes != null)
             {
-                foreach (var li in liNodes)
+                foreach (var cautionNode in cautionNodes)
                 {
-                    // Skip parent steps that contain substeps
-                    if (li.SelectSingleNode("./div//ol") != null)
-                        continue;
-
-                    // Get only CAUTION blocks, not NOTE blocks
-                    var cautionNode = li.SelectSingleNode(
-                        ".//div[contains(@class,'cautionOuterContainer')]//div[@class='cautionText']");
-
-                    if (cautionNode != null)
-                    {
-                        cautionsText.Add(HtmlEntity.DeEntitize(cautionNode.InnerText.Trim()));
-                    }
+                    cautionsText.Add(
+                        HtmlEntity.DeEntitize(cautionNode.InnerText.Trim()));
                 }
             }
 
