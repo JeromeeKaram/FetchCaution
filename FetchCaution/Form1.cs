@@ -41,6 +41,16 @@ namespace FetchCaution
 
                     var cautionList = new List<Caution>();
 
+                    bool cautionsForEM = true;
+
+                    if (cautionsForEM == true)
+                    {
+                         fileNames = fileNames
+    .Where(x => x.Split('-').Length > 5 &&
+                x.Split('-')[5].StartsWith("3"))
+    .ToList();
+                    }
+
                     foreach (var fileName in fileNames)
                     {
                         var newUrl = url.Substring(0, url.LastIndexOf('/') + 1) + fileName;
@@ -309,7 +319,10 @@ namespace FetchCaution
         private void Form1_Load(object sender, EventArgs e)
         {
 #if DEBUG
-            txtUrl.Text = "http://127.0.0.1:8000/PW1000G-77445-19453-00/PW1000G-77445-15653-00.html";
+            //txtUrl.Text = "http://127.0.0.1:8000/PW1000G-77445-19453-00/PW1000G-77445-15653-00.html"; //EM_CIR
+            txtUrl.Text = "http://127.0.0.1:8003/PW1000G-77445-19453-00/PW1000G-77445-16992-00.html"; //EM
+            //txtUrl.Text = "http://127.0.0.1:8004/PW1000G-77445-19155-00/"; //SP_CIR_72_35
+            //txtUrl.Text = "http://127.0.0.1:8005/PW1000G-77445-19156-00/"; //SP_CIR_72_51
 #endif
         }
     }
