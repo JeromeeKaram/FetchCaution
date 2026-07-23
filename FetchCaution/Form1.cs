@@ -25,31 +25,44 @@ namespace FetchCaution
             if (!ValidateOutputFolder(txtOutPutPath))
                 return;
 
+            var selectedItem = (KeyValuePair<string, string>)cmbModule.SelectedItem;
+
+            var key = selectedItem.Key;
+            var url = txtUrl.Text;
+
             progressBar1.Style = ProgressBarStyle.Marquee;
             progressBar1.MarqueeAnimationSpeed = 30;
             progressBar1.Visible = true;
+
+            var fileNames = new List<string>();
             try
             {
                 await Task.Run(() =>
                 {
-                    var url = txtUrl.Text;
+                    switch ((ModuleType)Enum.Parse(typeof(ModuleType), key))
+                    {
+                        case ModuleType.EM_CIR: // EM_CIR
+                            fileNames = fetchLinks(url, ModuleType.EM_CIR);
+                            break;
+                        case ModuleType.EM:
+                            fileNames = fetchLinks(url, ModuleType.EM);
+                            fileNames = fileNames.Where(x => x.Split('-').Length > 6 && x.Split('-')[6].StartsWith("3")).ToList();
+                            break;
+                        case ModuleType.SP72_35:
+                            fileNames = fetchLinks(url, ModuleType.SP72_35);
+                            break;
+                        case ModuleType.SP72_51:
+                            fileNames = fetchLinks(url, ModuleType.SP72_51);
+                            break;
 
-                    var fileNames = fetchLinks(url);
-                    //var url = "http://127.0.0.1:8000/PW1000G-77445-19453-00/PW1100G-A-72-00-21-04A-520A-B.html"; - 1 item
-                    //var url = "http://127.0.0.1:8000/PW1000G-77445-19453-00/PW1100G-A-72-11-00-01A-709A-B.html"; - 2 items
-                    //var url = "http://127.0.0.1:8000/PW1000G-77445-19453-00/PW1100G-A-72-11-01-00A-520A-D.html"; - 3 items
+                    }
+
+                    if (fileNames == null)
+                    {
+                        return;
+                    }
 
                     var cautionList = new List<Caution>();
-
-                    bool cautionsForEM = true;
-
-                    if (cautionsForEM == true)
-                    {
-                         fileNames = fileNames
-    .Where(x => x.Split('-').Length > 5 &&
-                x.Split('-')[5].StartsWith("3"))
-    .ToList();
-                    }
 
                     foreach (var fileName in fileNames)
                     {
@@ -73,7 +86,6 @@ namespace FetchCaution
                     ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, noCautions, "NoCautions");
 #endif
                     excelInstance.Save();
-
                     MessageBox.Show("Finished Fetching Cautions");
 
                     // Open the Excel file
@@ -134,17 +146,37 @@ namespace FetchCaution
             return true;
         }
 
-        private List<string> fetchLinks(string url)
+        private List<string> fetchLinks(string url, ModuleType moduleType)
         {
             //url - http://127.0.0.1:8000/PW1000G-77445-19453-00/PW1000G-77445-15653-00.html
-            List<ModuleInfo> lstmods = extract_task(url);
             List<string> fileNames = new List<string>();
-            foreach (ModuleInfo mod in lstmods)
+
+            if (moduleType == ModuleType.EM_CIR || moduleType == ModuleType.EM)
             {
-                foreach (TaskInfo task in mod.m_lstTasks)
+                List<ModuleInfo> lstmods = extract_task(url);
+
+                foreach (ModuleInfo mod in lstmods)
                 {
-                    fileNames.Add(task.m_sHtmlLink);
+                    foreach (TaskInfo task in mod.m_lstTasks)
+                    {
+                        fileNames.Add(task.m_sHtmlLink);
+                    }
                 }
+            }
+            else if (moduleType == ModuleType.SP72_35)
+            {
+                var headerText = "SP-72-35 Special Procedures - High Pressure Compressor (HPC) Module - Clean, Inspect, And Repair (CIR)";
+                fileNames = ExtractSPLinks(url, moduleType, headerText);
+            }
+            else if (moduleType == ModuleType.SP72_51)
+            {
+                var headerText = "SP-72-51 Special Procedures - High Pressure Turbine (HPT) Module - Clean, Inspect, And Repair (CIR)";
+                fileNames = ExtractSPLinks(url, moduleType, headerText);
+            }
+
+            if (fileNames == null)
+            {
+                return null;
             }
 
             return fileNames;
@@ -194,6 +226,62 @@ namespace FetchCaution
                 //Utility.WriteErrorLog("", ee.Message, ee.StackTrace);
             }
             return lstmods;
+        }
+
+        private List<string> ExtractSPLinks(string url, ModuleType moduleType, string headerText)
+        {
+            try
+            {
+                var web = new HtmlWeb();
+                var doc = web.Load(url);
+
+                var htmlPages = new List<string>();
+
+                var ulNode = doc.DocumentNode.SelectSingleNode("//ul[contains(@class,'navList')]");
+
+                var liNodes = ulNode.SelectNodes("./li");
+
+                if (liNodes != null)
+                {
+                    foreach (var li in liNodes)
+                    {
+                        var navLinkDiv = li.SelectSingleNode(".//div[contains(@class,'navLink')]");
+
+                        if (navLinkDiv != null)
+                        {
+                            string text = navLinkDiv.InnerText.Trim();
+
+                            if (moduleType == ModuleType.SP72_51)
+                            {
+                                if (text != "SP-72-51 Special Procedures - High Pressure Turbine (HPT) Module - Clean, Inspect, And Repair (CIR)") continue;
+                            }
+                            else if (moduleType == ModuleType.SP72_35)
+                            {
+                                if (text != "SP-72-35 Special Procedures - High Pressure Compressor (HPC) Module - Clean, Inspect, And Repair (CIR)") continue;
+                            }
+
+                            var dmcValues = li.SelectNodes(".//div[contains(@class,'navDocument') and contains(@class,'hide')]")
+                                  ?.Select(x => x.GetAttributeValue("data-dmc", ""))
+                                  .Where(x => !string.IsNullOrWhiteSpace(x))
+                                  .ToList();
+
+                            if (dmcValues != null)
+                            {
+                                htmlPages.AddRange(dmcValues);
+                            }
+
+                            break;
+                        }
+                    }
+                }
+
+                return htmlPages;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error extracting SP links: {ex.Message}");
+                return null;
+            }
         }
 
         List<string> SplitString(string sValue, string schar)
@@ -320,10 +408,22 @@ namespace FetchCaution
         {
 #if DEBUG
             //txtUrl.Text = "http://127.0.0.1:8000/PW1000G-77445-19453-00/PW1000G-77445-15653-00.html"; //EM_CIR
-            txtUrl.Text = "http://127.0.0.1:8003/PW1000G-77445-19453-00/PW1000G-77445-16992-00.html"; //EM
+            //txtUrl.Text = "http://127.0.0.1:8003/PW1000G-77445-19453-00/PW1000G-77445-16992-00.html"; //EM
             //txtUrl.Text = "http://127.0.0.1:8004/PW1000G-77445-19155-00/"; //SP_CIR_72_35
             //txtUrl.Text = "http://127.0.0.1:8005/PW1000G-77445-19156-00/"; //SP_CIR_72_51
 #endif
+
+            cmbModule.DataSource = new List<KeyValuePair<string, string>>
+{
+    new KeyValuePair<string, string>(ModuleType.EM_CIR.ToString(), "Engine Manual CIR"),
+    new KeyValuePair<string, string>(ModuleType.EM.ToString(), "Engine Manual"),
+    new KeyValuePair<string, string>(ModuleType.SP72_35.ToString(), "SP 72-35"),
+    new KeyValuePair<string, string>(ModuleType.SP72_51.ToString(), "SP 72-51")
+};
+
+            cmbModule.DisplayMember = "Value";
+            cmbModule.ValueMember = "Key";
+
         }
     }
 }

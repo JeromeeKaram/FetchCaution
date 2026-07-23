@@ -28,25 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtUrl = new TextBox();
             btnFetchCaution = new Button();
             txtOutPutPath = new TextBox();
             btnBrowseOutputPath = new Button();
             progressBar1 = new ProgressBar();
             label1 = new Label();
             label2 = new Label();
+            cmbModule = new ComboBox();
+            label3 = new Label();
+            txtUrl = new TextBox();
             SuspendLayout();
-            // 
-            // txtUrl
-            // 
-            txtUrl.Location = new Point(200, 55);
-            txtUrl.Name = "txtUrl";
-            txtUrl.Size = new Size(573, 23);
-            txtUrl.TabIndex = 0;
             // 
             // btnFetchCaution
             // 
-            btnFetchCaution.Location = new Point(592, 114);
+            btnFetchCaution.Location = new Point(291, 114);
             btnFetchCaution.Name = "btnFetchCaution";
             btnFetchCaution.Size = new Size(181, 23);
             btnFetchCaution.TabIndex = 1;
@@ -81,11 +76,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(34, 63);
+            label1.Location = new Point(34, 21);
             label1.Name = "label1";
-            label1.Size = new Size(108, 15);
+            label1.Size = new Size(82, 15);
             label1.TabIndex = 5;
-            label1.Text = "Enter Cautions URL";
+            label1.Text = "Select Module";
             // 
             // label2
             // 
@@ -96,18 +91,44 @@
             label2.TabIndex = 6;
             label2.Text = "Choose Output Location";
             // 
+            // cmbModule
+            // 
+            cmbModule.FormattingEnabled = true;
+            cmbModule.Location = new Point(200, 13);
+            cmbModule.Name = "cmbModule";
+            cmbModule.Size = new Size(386, 23);
+            cmbModule.TabIndex = 7;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(34, 55);
+            label3.Name = "label3";
+            label3.Size = new Size(52, 15);
+            label3.TabIndex = 8;
+            label3.Text = "Enter Url";
+            // 
+            // txtUrl
+            // 
+            txtUrl.Location = new Point(200, 47);
+            txtUrl.Name = "txtUrl";
+            txtUrl.Size = new Size(386, 23);
+            txtUrl.TabIndex = 9;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 224);
+            Controls.Add(txtUrl);
+            Controls.Add(label3);
+            Controls.Add(cmbModule);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(progressBar1);
             Controls.Add(btnBrowseOutputPath);
             Controls.Add(txtOutPutPath);
             Controls.Add(btnFetchCaution);
-            Controls.Add(txtUrl);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
@@ -116,13 +137,14 @@
         }
 
         #endregion
-
-        private TextBox txtUrl;
         private Button btnFetchCaution;
         private TextBox txtOutPutPath;
         private Button btnBrowseOutputPath;
         private ProgressBar progressBar1;
         private Label label1;
         private Label label2;
+        private ComboBox cmbModule;
+        private Label label3;
+        private TextBox txtUrl;
     }
 }
