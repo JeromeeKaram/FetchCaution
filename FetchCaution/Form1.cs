@@ -1,4 +1,6 @@
 using HtmlAgilityPack;
+using SVC;
+using SVC.About;
 using System;
 using System.Diagnostics;
 using System.Security.Policy;
@@ -424,6 +426,19 @@ namespace FetchCaution
             cmbModule.DisplayMember = "Value";
             cmbModule.ValueMember = "Key";
 
+            lblHeader.Text = Utility.m_sToolName + " V" + Utility.m_sVersion;
+
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dlg = new UIAbout();
+            dlg.ShowDialog();
         }
     }
 }

@@ -37,30 +37,42 @@
             cmbModule = new ComboBox();
             label3 = new Label();
             txtUrl = new TextBox();
+            menuStrip1 = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            exitToolStripMenuItem = new ToolStripMenuItem();
+            helpToolStripMenuItem = new ToolStripMenuItem();
+            aboutToolStripMenuItem = new ToolStripMenuItem();
+            lblHeader = new Label();
+            pictureBox1 = new PictureBox();
+            menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnFetchCaution
             // 
-            btnFetchCaution.Location = new Point(291, 114);
+            btnFetchCaution.BackColor = SystemColors.Highlight;
+            btnFetchCaution.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnFetchCaution.ForeColor = Color.White;
+            btnFetchCaution.Location = new Point(277, 185);
             btnFetchCaution.Name = "btnFetchCaution";
-            btnFetchCaution.Size = new Size(181, 23);
+            btnFetchCaution.Size = new Size(216, 34);
             btnFetchCaution.TabIndex = 1;
             btnFetchCaution.Text = "Fetch Cautions";
-            btnFetchCaution.UseVisualStyleBackColor = true;
+            btnFetchCaution.UseVisualStyleBackColor = false;
             btnFetchCaution.Click += btnFetchCaution_Click;
             // 
             // txtOutPutPath
             // 
-            txtOutPutPath.Location = new Point(200, 84);
+            txtOutPutPath.Location = new Point(200, 155);
             txtOutPutPath.Name = "txtOutPutPath";
             txtOutPutPath.Size = new Size(386, 23);
             txtOutPutPath.TabIndex = 2;
             // 
             // btnBrowseOutputPath
             // 
-            btnBrowseOutputPath.Location = new Point(592, 83);
+            btnBrowseOutputPath.Location = new Point(592, 154);
             btnBrowseOutputPath.Name = "btnBrowseOutputPath";
-            btnBrowseOutputPath.Size = new Size(181, 23);
+            btnBrowseOutputPath.Size = new Size(75, 23);
             btnBrowseOutputPath.TabIndex = 3;
             btnBrowseOutputPath.Text = "Browse";
             btnBrowseOutputPath.UseVisualStyleBackColor = true;
@@ -68,7 +80,7 @@
             // 
             // progressBar1
             // 
-            progressBar1.Location = new Point(34, 154);
+            progressBar1.Location = new Point(34, 225);
             progressBar1.Name = "progressBar1";
             progressBar1.Size = new Size(739, 23);
             progressBar1.TabIndex = 4;
@@ -76,25 +88,27 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(34, 21);
+            label1.Font = new Font("Verdana", 9F, FontStyle.Bold);
+            label1.Location = new Point(34, 92);
             label1.Name = "label1";
-            label1.Size = new Size(82, 15);
+            label1.Size = new Size(99, 14);
             label1.TabIndex = 5;
             label1.Text = "Select Module";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(34, 92);
+            label2.Font = new Font("Verdana", 9F, FontStyle.Bold);
+            label2.Location = new Point(34, 163);
             label2.Name = "label2";
-            label2.Size = new Size(137, 15);
+            label2.Size = new Size(164, 14);
             label2.TabIndex = 6;
             label2.Text = "Choose Output Location";
             // 
             // cmbModule
             // 
             cmbModule.FormattingEnabled = true;
-            cmbModule.Location = new Point(200, 13);
+            cmbModule.Location = new Point(200, 84);
             cmbModule.Name = "cmbModule";
             cmbModule.Size = new Size(386, 23);
             cmbModule.TabIndex = 7;
@@ -102,24 +116,85 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(34, 55);
+            label3.Font = new Font("Verdana", 9F, FontStyle.Bold);
+            label3.Location = new Point(34, 126);
             label3.Name = "label3";
-            label3.Size = new Size(52, 15);
+            label3.Size = new Size(66, 14);
             label3.TabIndex = 8;
             label3.Text = "Enter Url";
             // 
             // txtUrl
             // 
-            txtUrl.Location = new Point(200, 47);
+            txtUrl.Location = new Point(200, 118);
             txtUrl.Name = "txtUrl";
             txtUrl.Size = new Size(386, 23);
             txtUrl.TabIndex = 9;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, helpToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(803, 24);
+            menuStrip1.TabIndex = 10;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(37, 20);
+            fileToolStripMenuItem.Text = "File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(92, 22);
+            exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            // 
+            // helpToolStripMenuItem
+            // 
+            helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutToolStripMenuItem });
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new Size(44, 20);
+            helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new Size(107, 22);
+            aboutToolStripMenuItem.Text = "About";
+            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
+            // 
+            // lblHeader
+            // 
+            lblHeader.AutoSize = true;
+            lblHeader.Font = new Font("Verdana", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHeader.Location = new Point(200, 37);
+            lblHeader.Name = "lblHeader";
+            lblHeader.Size = new Size(0, 29);
+            lblHeader.TabIndex = 11;
+            lblHeader.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.IHI_Logo;
+            pictureBox1.Location = new Point(33, 35);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(87, 32);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 224);
+            BackColor = SystemColors.GradientActiveCaption;
+            ClientSize = new Size(803, 265);
+            Controls.Add(pictureBox1);
+            Controls.Add(lblHeader);
             Controls.Add(txtUrl);
             Controls.Add(label3);
             Controls.Add(cmbModule);
@@ -129,9 +204,14 @@
             Controls.Add(btnBrowseOutputPath);
             Controls.Add(txtOutPutPath);
             Controls.Add(btnFetchCaution);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -146,5 +226,12 @@
         private ComboBox cmbModule;
         private Label label3;
         private TextBox txtUrl;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem exitToolStripMenuItem;
+        private ToolStripMenuItem helpToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem;
+        private Label lblHeader;
+        private PictureBox pictureBox1;
     }
 }
