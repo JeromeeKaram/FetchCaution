@@ -427,6 +427,7 @@ namespace FetchCaution
             cmbModule.ValueMember = "Key";
 
             lblHeader.Text = Utility.m_sToolName + " V" + Utility.m_sVersion;
+            progressBar1.Visible = false;
 
         }
 

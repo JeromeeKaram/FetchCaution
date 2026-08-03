@@ -65,12 +65,12 @@
             // 
             txtOutPutPath.Location = new Point(200, 155);
             txtOutPutPath.Name = "txtOutPutPath";
-            txtOutPutPath.Size = new Size(386, 23);
+            txtOutPutPath.Size = new Size(469, 23);
             txtOutPutPath.TabIndex = 2;
             // 
             // btnBrowseOutputPath
             // 
-            btnBrowseOutputPath.Location = new Point(592, 154);
+            btnBrowseOutputPath.Location = new Point(675, 154);
             btnBrowseOutputPath.Name = "btnBrowseOutputPath";
             btnBrowseOutputPath.Size = new Size(75, 23);
             btnBrowseOutputPath.TabIndex = 3;
@@ -89,7 +89,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Verdana", 9F, FontStyle.Bold);
-            label1.Location = new Point(34, 92);
+            label1.Location = new Point(33, 88);
             label1.Name = "label1";
             label1.Size = new Size(99, 14);
             label1.TabIndex = 5;
@@ -99,7 +99,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Verdana", 9F, FontStyle.Bold);
-            label2.Location = new Point(34, 163);
+            label2.Location = new Point(32, 159);
             label2.Name = "label2";
             label2.Size = new Size(164, 14);
             label2.TabIndex = 6;
@@ -110,14 +110,14 @@
             cmbModule.FormattingEnabled = true;
             cmbModule.Location = new Point(200, 84);
             cmbModule.Name = "cmbModule";
-            cmbModule.Size = new Size(386, 23);
+            cmbModule.Size = new Size(553, 23);
             cmbModule.TabIndex = 7;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Verdana", 9F, FontStyle.Bold);
-            label3.Location = new Point(34, 126);
+            label3.Location = new Point(33, 122);
             label3.Name = "label3";
             label3.Size = new Size(66, 14);
             label3.TabIndex = 8;
@@ -127,7 +127,7 @@
             // 
             txtUrl.Location = new Point(200, 118);
             txtUrl.Name = "txtUrl";
-            txtUrl.Size = new Size(386, 23);
+            txtUrl.Size = new Size(553, 23);
             txtUrl.TabIndex = 9;
             // 
             // menuStrip1
