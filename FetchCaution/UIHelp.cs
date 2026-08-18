@@ -14,8 +14,8 @@ namespace SVC.About
     public partial class UIHelp : Form
     {
 
-        public const string pdf = "FetchCautionsTool.pdf";
-        public const string pptx = "FetchCautionsTool.pptx";
+        public const string pdf = "ExtractCautionsFromEngineManualTool.pdf";
+        public const string pptx = "ExtractCautionsFromEngineManualTool.pptx";
 
         public UIHelp()
         {

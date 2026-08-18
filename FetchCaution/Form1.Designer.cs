@@ -54,7 +54,7 @@
             btnFetchCaution.BackColor = SystemColors.Highlight;
             btnFetchCaution.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnFetchCaution.ForeColor = Color.White;
-            btnFetchCaution.Location = new Point(277, 185);
+            btnFetchCaution.Location = new Point(329, 185);
             btnFetchCaution.Name = "btnFetchCaution";
             btnFetchCaution.Size = new Size(216, 34);
             btnFetchCaution.TabIndex = 1;
@@ -64,14 +64,14 @@
             // 
             // txtOutPutPath
             // 
-            txtOutPutPath.Location = new Point(200, 155);
+            txtOutPutPath.Location = new Point(252, 155);
             txtOutPutPath.Name = "txtOutPutPath";
             txtOutPutPath.Size = new Size(469, 23);
             txtOutPutPath.TabIndex = 2;
             // 
             // btnBrowseOutputPath
             // 
-            btnBrowseOutputPath.Location = new Point(675, 154);
+            btnBrowseOutputPath.Location = new Point(727, 154);
             btnBrowseOutputPath.Name = "btnBrowseOutputPath";
             btnBrowseOutputPath.Size = new Size(75, 23);
             btnBrowseOutputPath.TabIndex = 3;
@@ -81,7 +81,7 @@
             // 
             // progressBar1
             // 
-            progressBar1.Location = new Point(34, 225);
+            progressBar1.Location = new Point(80, 225);
             progressBar1.Name = "progressBar1";
             progressBar1.Size = new Size(739, 23);
             progressBar1.TabIndex = 4;
@@ -90,7 +90,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Verdana", 9F, FontStyle.Bold);
-            label1.Location = new Point(33, 88);
+            label1.Location = new Point(73, 88);
             label1.Name = "label1";
             label1.Size = new Size(99, 14);
             label1.TabIndex = 5;
@@ -100,7 +100,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Verdana", 9F, FontStyle.Bold);
-            label2.Location = new Point(32, 159);
+            label2.Location = new Point(74, 159);
             label2.Name = "label2";
             label2.Size = new Size(164, 14);
             label2.TabIndex = 6;
@@ -109,7 +109,7 @@
             // cmbModule
             // 
             cmbModule.FormattingEnabled = true;
-            cmbModule.Location = new Point(200, 84);
+            cmbModule.Location = new Point(252, 84);
             cmbModule.Name = "cmbModule";
             cmbModule.Size = new Size(553, 23);
             cmbModule.TabIndex = 7;
@@ -118,15 +118,15 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Verdana", 9F, FontStyle.Bold);
-            label3.Location = new Point(33, 122);
+            label3.Location = new Point(74, 122);
             label3.Name = "label3";
-            label3.Size = new Size(66, 14);
+            label3.Size = new Size(173, 14);
             label3.TabIndex = 8;
-            label3.Text = "Enter Url";
+            label3.Text = "Enter Engine Manual Link";
             // 
             // txtUrl
             // 
-            txtUrl.Location = new Point(200, 118);
+            txtUrl.Location = new Point(252, 118);
             txtUrl.Name = "txtUrl";
             txtUrl.Size = new Size(553, 23);
             txtUrl.TabIndex = 9;
@@ -136,7 +136,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, helpToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(803, 24);
+            menuStrip1.Size = new Size(844, 24);
             menuStrip1.TabIndex = 10;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -164,33 +164,34 @@
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(180, 22);
+            aboutToolStripMenuItem.Size = new Size(107, 22);
             aboutToolStripMenuItem.Text = "About";
             aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
             // helpToolStripMenuItem1
             // 
             helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            helpToolStripMenuItem1.Size = new Size(180, 22);
+            helpToolStripMenuItem1.Size = new Size(107, 22);
             helpToolStripMenuItem1.Text = "Help";
             helpToolStripMenuItem1.Click += helpToolStripMenuItem1_Click;
             // 
             // lblHeader
             // 
             lblHeader.AutoSize = true;
-            lblHeader.Font = new Font("Verdana", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblHeader.Location = new Point(200, 37);
+            lblHeader.Font = new Font("Verdana", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHeader.Location = new Point(164, 37);
             lblHeader.Name = "lblHeader";
-            lblHeader.Size = new Size(0, 29);
+            lblHeader.Size = new Size(542, 26);
             lblHeader.TabIndex = 11;
+            lblHeader.Text = "Extract Cautions From Engine Manual Tool";
             lblHeader.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.IHI_Logo;
-            pictureBox1.Location = new Point(33, 35);
+            pictureBox1.Location = new Point(2, 35);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(87, 32);
+            pictureBox1.Size = new Size(80, 30);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
@@ -200,7 +201,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(803, 265);
+            ClientSize = new Size(844, 265);
             Controls.Add(pictureBox1);
             Controls.Add(lblHeader);
             Controls.Add(txtUrl);
@@ -215,7 +216,7 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Form1";
-            Text = "Fetch Cautions Tool";
+            Text = "Extract Cautions From Engine Manual Tool";
             Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
