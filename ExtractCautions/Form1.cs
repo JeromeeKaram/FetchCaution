@@ -44,17 +44,17 @@ namespace ExtractCautions
                     switch ((ModuleType)Enum.Parse(typeof(ModuleType), key))
                     {
                         case ModuleType.EM_CIR: // EM_CIR
-                            fileNames = fetchLinks(url, ModuleType.EM_CIR);
+                            fileNames = FetchLinks(url, ModuleType.EM_CIR);
                             break;
                         case ModuleType.EM:
-                            fileNames = fetchLinks(url, ModuleType.EM);
+                            fileNames = FetchLinks(url, ModuleType.EM);
                             fileNames = fileNames.Where(x => x.Split('-').Length > 6 && x.Split('-')[6].StartsWith("3")).ToList();
                             break;
                         case ModuleType.SP72_35:
-                            fileNames = fetchLinks(url, ModuleType.SP72_35);
+                            fileNames = FetchLinks(url, ModuleType.SP72_35);
                             break;
                         case ModuleType.SP72_51:
-                            fileNames = fetchLinks(url, ModuleType.SP72_51);
+                            fileNames = FetchLinks(url, ModuleType.SP72_51);
                             break;
 
                     }
@@ -148,7 +148,7 @@ namespace ExtractCautions
             return true;
         }
 
-        private List<string> fetchLinks(string url, ModuleType moduleType)
+        private List<string> FetchLinks(string url, ModuleType moduleType)
         {
             //url - http://127.0.0.1:8000/PW1000G-77445-19453-00/PW1000G-77445-15653-00.html
             List<string> fileNames = new List<string>();
