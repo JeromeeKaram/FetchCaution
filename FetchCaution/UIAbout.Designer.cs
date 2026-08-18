@@ -134,7 +134,7 @@ namespace SVC.About
             tbIHIMail.Name = "tbIHIMail";
             tbIHIMail.Size = new Size(216, 13);
             tbIHIMail.TabIndex = 9;
-            tbIHIMail.Text = "hayasaka1386@ihi-g.com";
+            tbIHIMail.Text = "ito0114@ihi-g.com";
             // 
             // lbOffshoreContact
             // 
@@ -165,9 +165,9 @@ namespace SVC.About
             lblHIContact.Location = new Point(178, 32);
             lblHIContact.Margin = new Padding(4, 0, 4, 0);
             lblHIContact.Name = "lblHIContact";
-            lblHIContact.Size = new Size(91, 14);
+            lblHIContact.Size = new Size(112, 14);
             lblHIContact.TabIndex = 3;
-            lblHIContact.Text = "Hayasaka san";
+            lblHIContact.Text = "Tatsuya Ito San";
             // 
             // label2
             // 

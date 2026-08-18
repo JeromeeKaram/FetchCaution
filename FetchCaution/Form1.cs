@@ -428,7 +428,7 @@ namespace FetchCaution
 
             lblHeader.Text = Utility.m_sToolName + " V" + Utility.m_sVersion;
             progressBar1.Visible = false;
-
+            this.Text = Utility.m_sToolName + " V" + Utility.m_sVersion;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -438,8 +438,14 @@ namespace FetchCaution
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var dlg = new UIAbout();
-            dlg.ShowDialog();
+            var dlgAbout = new UIAbout();
+            dlgAbout.ShowDialog();
+        }
+
+        private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var dlgHelp = new UIHelp();
+            dlgHelp.ShowDialog();
         }
     }
 }
