@@ -1,0 +1,257 @@
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace ExtractCautionsForEM
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.btnFetchCaution = new System.Windows.Forms.Button();
+            this.txtOutPutPath = new System.Windows.Forms.TextBox();
+            this.btnBrowseOutputPath = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbModule = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtUrl = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblHeader = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // btnFetchCaution
+            // 
+            this.btnFetchCaution.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnFetchCaution.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnFetchCaution.ForeColor = System.Drawing.Color.White;
+            this.btnFetchCaution.Location = new System.Drawing.Point(282, 175);
+            this.btnFetchCaution.Name = "btnFetchCaution";
+            this.btnFetchCaution.Size = new System.Drawing.Size(185, 29);
+            this.btnFetchCaution.TabIndex = 1;
+            this.btnFetchCaution.Text = "Fetch Cautions";
+            this.btnFetchCaution.UseVisualStyleBackColor = false;
+            this.btnFetchCaution.Click += new System.EventHandler(this.btnFetchCaution_Click);
+            // 
+            // txtOutPutPath
+            // 
+            this.txtOutPutPath.Location = new System.Drawing.Point(216, 146);
+            this.txtOutPutPath.Name = "txtOutPutPath";
+            this.txtOutPutPath.Size = new System.Drawing.Size(403, 20);
+            this.txtOutPutPath.TabIndex = 2;
+            // 
+            // btnBrowseOutputPath
+            // 
+            this.btnBrowseOutputPath.Location = new System.Drawing.Point(623, 145);
+            this.btnBrowseOutputPath.Name = "btnBrowseOutputPath";
+            this.btnBrowseOutputPath.Size = new System.Drawing.Size(68, 21);
+            this.btnBrowseOutputPath.TabIndex = 3;
+            this.btnBrowseOutputPath.Text = "Browse";
+            this.btnBrowseOutputPath.UseVisualStyleBackColor = true;
+            this.btnBrowseOutputPath.Click += new System.EventHandler(this.btnBrowseOutputPath_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(32, 210);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(659, 20);
+            this.progressBar1.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(29, 91);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 14);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Select Module";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(29, 149);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(164, 14);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Choose Output Location";
+            // 
+            // cmbModule
+            // 
+            this.cmbModule.FormattingEnabled = true;
+            this.cmbModule.Location = new System.Drawing.Point(216, 88);
+            this.cmbModule.Name = "cmbModule";
+            this.cmbModule.Size = new System.Drawing.Size(475, 21);
+            this.cmbModule.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(29, 121);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(173, 14);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Enter Engine Manual Link";
+            // 
+            // txtUrl
+            // 
+            this.txtUrl.Location = new System.Drawing.Point(216, 117);
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(475, 20);
+            this.txtUrl.TabIndex = 9;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(723, 24);
+            this.menuStrip1.TabIndex = 10;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem,
+            this.helpToolStripMenuItem1});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem1
+            // 
+            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.helpToolStripMenuItem1.Text = "Help";
+            this.helpToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
+            // 
+            // lblHeader
+            // 
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.Location = new System.Drawing.Point(145, 32);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(544, 25);
+            this.lblHeader.TabIndex = 11;
+            this.lblHeader.Text = "Extract Cautions From Engine Manual Tool V1.0";
+            this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ExtractCautionsForEM.Properties.Resources.IHI_Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 33);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(69, 26);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(723, 261);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblHeader);
+            this.Controls.Add(this.txtUrl);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cmbModule);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.btnBrowseOutputPath);
+            this.Controls.Add(this.txtOutPutPath);
+            this.Controls.Add(this.btnFetchCaution);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "Form1";
+            this.Text = "Extract Cautions From Engine Manual Tool V1.0";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+        private Button btnFetchCaution;
+        private TextBox txtOutPutPath;
+        private Button btnBrowseOutputPath;
+        private ProgressBar progressBar1;
+        private Label label1;
+        private Label label2;
+        private ComboBox cmbModule;
+        private Label label3;
+        private TextBox txtUrl;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem exitToolStripMenuItem;
+        private ToolStripMenuItem helpToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem;
+        private Label lblHeader;
+        private PictureBox pictureBox1;
+        private ToolStripMenuItem helpToolStripMenuItem1;
+    }
+}
