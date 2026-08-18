@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace SVC.About
+namespace ExtractCautions.About
 {
     partial class UIAbout
     {

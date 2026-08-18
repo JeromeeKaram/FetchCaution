@@ -1,4 +1,4 @@
-namespace FetchCaution
+namespace ExtractCautions
 {
     internal static class Program
     {

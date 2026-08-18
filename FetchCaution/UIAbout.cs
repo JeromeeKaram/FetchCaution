@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SVC.About
+namespace ExtractCautions.About
 {
     public partial class UIAbout : Form
     {

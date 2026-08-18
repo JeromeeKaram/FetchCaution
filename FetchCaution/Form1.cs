@@ -1,12 +1,12 @@
+using ExtractCautions;
+using ExtractCautions.About;
 using HtmlAgilityPack;
-using SVC;
-using SVC.About;
 using System;
 using System.Diagnostics;
 using System.Security.Policy;
 using System.Text;
 
-namespace FetchCaution
+namespace ExtractCautions
 {
     public partial class Form1 : Form
     {

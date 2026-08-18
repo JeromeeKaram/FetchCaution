@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SVC
+namespace ExtractCautions
 {
     class XlUtility
     {

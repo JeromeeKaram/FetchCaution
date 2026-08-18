@@ -1,4 +1,4 @@
-﻿namespace FetchCaution
+﻿namespace ExtractCautions
 {
     partial class Form1
     {
@@ -188,7 +188,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.IHI_Logo;
+            pictureBox1.Image = FetchCaution.Properties.Resources.IHI_Logo;
             pictureBox1.Location = new Point(2, 35);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(80, 30);

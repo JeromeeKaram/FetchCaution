@@ -1,4 +1,4 @@
-﻿namespace SVC.About
+﻿namespace ExtractCautions.About
 {
     partial class UIHelp
     {
