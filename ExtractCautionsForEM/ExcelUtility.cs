@@ -123,6 +123,7 @@ public static class ExcelUtility
                 worksheet.Cells[excelRow, 1].Value = caution.DMC;
                 worksheet.Cells[excelRow, 2].Value = caution.Title;
                 worksheet.Cells[excelRow, 3].Value = caution.CautionText;
+                worksheet.Cells[excelRow, 2].Style.WrapText = true;
                 worksheet.Cells[excelRow, 3].Style.WrapText = true;
 
 #if DEBUG
@@ -149,6 +150,7 @@ public static class ExcelUtility
                 worksheet.Cells[excelRow, 2].Value = caution.Title;
                 worksheet.Cells[excelRow, 3].Value = caution.CautionText;
                 worksheet.Cells[excelRow, 3].Style.WrapText = true;
+                worksheet.Cells[excelRow, 2].Style.WrapText = true;
                 worksheet.Cells[excelRow, 4].Value = caution.DMC;
 
                 // Format row
