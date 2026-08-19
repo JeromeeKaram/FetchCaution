@@ -67,16 +67,17 @@ namespace ExtractCautionsForEM
             // 
             // txtOutPutPath
             // 
+            this.txtOutPutPath.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOutPutPath.Location = new System.Drawing.Point(216, 146);
             this.txtOutPutPath.Name = "txtOutPutPath";
-            this.txtOutPutPath.Size = new System.Drawing.Size(403, 20);
+            this.txtOutPutPath.Size = new System.Drawing.Size(403, 22);
             this.txtOutPutPath.TabIndex = 2;
             // 
             // btnBrowseOutputPath
             // 
             this.btnBrowseOutputPath.Location = new System.Drawing.Point(623, 145);
             this.btnBrowseOutputPath.Name = "btnBrowseOutputPath";
-            this.btnBrowseOutputPath.Size = new System.Drawing.Size(68, 21);
+            this.btnBrowseOutputPath.Size = new System.Drawing.Size(68, 22);
             this.btnBrowseOutputPath.TabIndex = 3;
             this.btnBrowseOutputPath.Text = "Browse";
             this.btnBrowseOutputPath.UseVisualStyleBackColor = true;
@@ -111,10 +112,12 @@ namespace ExtractCautionsForEM
             // 
             // cmbModule
             // 
+            this.cmbModule.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbModule.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbModule.FormattingEnabled = true;
             this.cmbModule.Location = new System.Drawing.Point(216, 88);
             this.cmbModule.Name = "cmbModule";
-            this.cmbModule.Size = new System.Drawing.Size(475, 21);
+            this.cmbModule.Size = new System.Drawing.Size(475, 22);
             this.cmbModule.TabIndex = 7;
             // 
             // label3
@@ -129,9 +132,10 @@ namespace ExtractCautionsForEM
             // 
             // txtUrl
             // 
+            this.txtUrl.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUrl.Location = new System.Drawing.Point(216, 117);
             this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(475, 20);
+            this.txtUrl.Size = new System.Drawing.Size(475, 22);
             this.txtUrl.TabIndex = 9;
             // 
             // menuStrip1
@@ -158,7 +162,7 @@ namespace ExtractCautionsForEM
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 

@@ -25,7 +25,7 @@ namespace ExtractCautionsForEM
         {
             if (string.IsNullOrEmpty(txtUrl.Text))
             {
-                MessageBox.Show("Please enter a URL.");
+                MessageBox.Show("Please Engine Manual Link.");
                 return;
             }
 
