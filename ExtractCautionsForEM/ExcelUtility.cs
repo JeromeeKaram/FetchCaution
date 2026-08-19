@@ -58,11 +58,30 @@ public static class ExcelUtility
                 colIndex++;
             }
 
+            worksheet.Column(1).Width = 35;
+            worksheet.Column(2).Width = 70;
+            worksheet.Column(3).Width = 100;
+            
+
             // Header formatting
             using (var range = worksheet.Cells[1, 1, 1, columnNames.Count()])
             {
                 range.Style.Font.Bold = true;
+
+                // Yellow background
+                range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                range.Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+
+                // Center align
+                range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
             }
+
+            // Header row height
+            worksheet.Row(1).Height = 25;
+
+            // Vertical alignment for entire worksheet
+            worksheet.Cells.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
         }
 
         package.Save();
@@ -104,12 +123,17 @@ public static class ExcelUtility
                 worksheet.Cells[excelRow, 1].Value = caution.DMC;
                 worksheet.Cells[excelRow, 2].Value = caution.Title;
                 worksheet.Cells[excelRow, 3].Value = caution.CautionText;
+                worksheet.Cells[excelRow, 3].Style.WrapText = true;
 
 #if DEBUG
                 var cell = worksheet.Cells[excelRow, 4];
                 cell.Value = caution.NewUrl;
                 cell.Hyperlink = new Uri(caution.NewUrl);
 #endif
+
+                // Format row
+                worksheet.Row(excelRow).Style.VerticalAlignment =
+                    ExcelVerticalAlignment.Center;
 
                 excelRow++;
             }
@@ -124,7 +148,13 @@ public static class ExcelUtility
 
                 worksheet.Cells[excelRow, 2].Value = caution.Title;
                 worksheet.Cells[excelRow, 3].Value = caution.CautionText;
+                worksheet.Cells[excelRow, 3].Style.WrapText = true;
                 worksheet.Cells[excelRow, 4].Value = caution.DMC;
+
+                // Format row
+                worksheet.Row(excelRow).Style.VerticalAlignment =
+                    ExcelVerticalAlignment.Center;
+
                 excelRow++;
             }
         }

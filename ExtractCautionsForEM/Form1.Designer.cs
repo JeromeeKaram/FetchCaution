@@ -57,7 +57,7 @@ namespace ExtractCautionsForEM
             this.btnFetchCaution.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnFetchCaution.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnFetchCaution.ForeColor = System.Drawing.Color.White;
-            this.btnFetchCaution.Location = new System.Drawing.Point(282, 175);
+            this.btnFetchCaution.Location = new System.Drawing.Point(332, 194);
             this.btnFetchCaution.Name = "btnFetchCaution";
             this.btnFetchCaution.Size = new System.Drawing.Size(185, 29);
             this.btnFetchCaution.TabIndex = 1;
@@ -68,14 +68,14 @@ namespace ExtractCautionsForEM
             // txtOutPutPath
             // 
             this.txtOutPutPath.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOutPutPath.Location = new System.Drawing.Point(216, 146);
+            this.txtOutPutPath.Location = new System.Drawing.Point(216, 158);
             this.txtOutPutPath.Name = "txtOutPutPath";
-            this.txtOutPutPath.Size = new System.Drawing.Size(403, 22);
+            this.txtOutPutPath.Size = new System.Drawing.Size(489, 22);
             this.txtOutPutPath.TabIndex = 2;
             // 
             // btnBrowseOutputPath
             // 
-            this.btnBrowseOutputPath.Location = new System.Drawing.Point(623, 145);
+            this.btnBrowseOutputPath.Location = new System.Drawing.Point(711, 158);
             this.btnBrowseOutputPath.Name = "btnBrowseOutputPath";
             this.btnBrowseOutputPath.Size = new System.Drawing.Size(68, 22);
             this.btnBrowseOutputPath.TabIndex = 3;
@@ -85,9 +85,9 @@ namespace ExtractCautionsForEM
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(32, 210);
+            this.progressBar1.Location = new System.Drawing.Point(32, 229);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(659, 20);
+            this.progressBar1.Size = new System.Drawing.Size(747, 20);
             this.progressBar1.TabIndex = 4;
             // 
             // label1
@@ -104,7 +104,7 @@ namespace ExtractCautionsForEM
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(29, 149);
+            this.label2.Location = new System.Drawing.Point(29, 161);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(164, 14);
             this.label2.TabIndex = 6;
@@ -117,14 +117,14 @@ namespace ExtractCautionsForEM
             this.cmbModule.FormattingEnabled = true;
             this.cmbModule.Location = new System.Drawing.Point(216, 88);
             this.cmbModule.Name = "cmbModule";
-            this.cmbModule.Size = new System.Drawing.Size(475, 22);
+            this.cmbModule.Size = new System.Drawing.Size(563, 22);
             this.cmbModule.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(29, 121);
+            this.label3.Location = new System.Drawing.Point(29, 127);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(173, 14);
             this.label3.TabIndex = 8;
@@ -133,9 +133,9 @@ namespace ExtractCautionsForEM
             // txtUrl
             // 
             this.txtUrl.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUrl.Location = new System.Drawing.Point(216, 117);
+            this.txtUrl.Location = new System.Drawing.Point(216, 123);
             this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(475, 22);
+            this.txtUrl.Size = new System.Drawing.Size(563, 22);
             this.txtUrl.TabIndex = 9;
             // 
             // menuStrip1
@@ -147,7 +147,7 @@ namespace ExtractCautionsForEM
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(723, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(832, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -215,7 +215,7 @@ namespace ExtractCautionsForEM
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(723, 261);
+            this.ClientSize = new System.Drawing.Size(832, 261);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.txtUrl);
