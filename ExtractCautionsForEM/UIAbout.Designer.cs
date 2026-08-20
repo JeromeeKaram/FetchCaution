@@ -31,240 +31,224 @@ namespace ExtractCautionsForEM.About
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            label3 = new Label();
-            grbContactDet = new GroupBox();
-            tbOffshoreMail = new TextBox();
-            tbOnsiteMail = new TextBox();
-            tbIHIMail = new TextBox();
-            lbOffshoreContact = new Label();
-            lbOnsiteContact = new Label();
-            lblHIContact = new Label();
-            label2 = new Label();
-            label1 = new Label();
-            lbContact = new Label();
-            BtnOk = new Button();
-            lbVersion = new Label();
-            lbDate = new Label();
-            panel1.SuspendLayout();
-            grbContactDet.SuspendLayout();
-            SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.grbContactDet = new System.Windows.Forms.GroupBox();
+            this.tbOffshoreMail = new System.Windows.Forms.TextBox();
+            this.tbOnsiteMail = new System.Windows.Forms.TextBox();
+            this.tbIHIMail = new System.Windows.Forms.TextBox();
+            this.lbOffshoreContact = new System.Windows.Forms.Label();
+            this.lbOnsiteContact = new System.Windows.Forms.Label();
+            this.lblHIContact = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbContact = new System.Windows.Forms.Label();
+            this.BtnOk = new System.Windows.Forms.Button();
+            this.lbVersion = new System.Windows.Forms.Label();
+            this.lbDate = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            this.grbContactDet.SuspendLayout();
+            this.SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.GradientActiveCaption;
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(label3);
-            panel1.Font = new Font("Verdana", 9F, FontStyle.Italic);
-            panel1.Location = new Point(5, 36);
-            panel1.Margin = new Padding(4, 3, 4, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(690, 80);
-            panel1.TabIndex = 0;
+            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Italic);
+            this.panel1.Location = new System.Drawing.Point(4, 31);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(592, 70);
+            this.panel1.TabIndex = 0;
             // 
             // label3
             // 
-            label3.BackColor = SystemColors.GradientActiveCaption;
-            label3.Font = new Font("Verdana", 9F);
-            label3.ForeColor = Color.FromArgb(25, 70, 130);
-            label3.Location = new Point(6, 15);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(680, 68);
-            label3.TabIndex = 9;
-            label3.Text = "The primary purpose of this tool is to fetch cautions of Engine Manual, Engine Manual CIR, SP 72-35, SP 72-51, ";
+            this.label3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.label3.Font = new System.Drawing.Font("Verdana", 9F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(70)))), ((int)(((byte)(130)))));
+            this.label3.Location = new System.Drawing.Point(5, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(583, 59);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "The primary purpose of this tool is to extract Cautions from Engine Manual, Engin" +
+    "e Manual (CIR), SP 72-35 (EM && CIR), SP 72-51(EM && CIR). ";
             // 
             // grbContactDet
             // 
-            grbContactDet.BackColor = SystemColors.GradientActiveCaption;
-            grbContactDet.Controls.Add(tbOffshoreMail);
-            grbContactDet.Controls.Add(tbOnsiteMail);
-            grbContactDet.Controls.Add(tbIHIMail);
-            grbContactDet.Controls.Add(lbOffshoreContact);
-            grbContactDet.Controls.Add(lbOnsiteContact);
-            grbContactDet.Controls.Add(lblHIContact);
-            grbContactDet.Controls.Add(label2);
-            grbContactDet.Controls.Add(label1);
-            grbContactDet.Controls.Add(lbContact);
-            grbContactDet.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 254);
-            grbContactDet.ForeColor = Color.FromArgb(25, 70, 130);
-            grbContactDet.Location = new Point(5, 123);
-            grbContactDet.Margin = new Padding(4, 3, 4, 3);
-            grbContactDet.Name = "grbContactDet";
-            grbContactDet.Padding = new Padding(4, 3, 4, 3);
-            grbContactDet.Size = new Size(691, 140);
-            grbContactDet.TabIndex = 1;
-            grbContactDet.TabStop = false;
-            grbContactDet.Text = "Contact details";
+            this.grbContactDet.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.grbContactDet.Controls.Add(this.tbOffshoreMail);
+            this.grbContactDet.Controls.Add(this.tbOnsiteMail);
+            this.grbContactDet.Controls.Add(this.tbIHIMail);
+            this.grbContactDet.Controls.Add(this.lbOffshoreContact);
+            this.grbContactDet.Controls.Add(this.lbOnsiteContact);
+            this.grbContactDet.Controls.Add(this.lblHIContact);
+            this.grbContactDet.Controls.Add(this.label2);
+            this.grbContactDet.Controls.Add(this.label1);
+            this.grbContactDet.Controls.Add(this.lbContact);
+            this.grbContactDet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.grbContactDet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(70)))), ((int)(((byte)(130)))));
+            this.grbContactDet.Location = new System.Drawing.Point(4, 107);
+            this.grbContactDet.Name = "grbContactDet";
+            this.grbContactDet.Size = new System.Drawing.Size(592, 121);
+            this.grbContactDet.TabIndex = 1;
+            this.grbContactDet.TabStop = false;
+            this.grbContactDet.Text = "Contact details";
             // 
             // tbOffshoreMail
             // 
-            tbOffshoreMail.BackColor = SystemColors.GradientActiveCaption;
-            tbOffshoreMail.BorderStyle = BorderStyle.None;
-            tbOffshoreMail.Font = new Font("Bell MT", 8.25F, FontStyle.Underline);
-            tbOffshoreMail.ForeColor = Color.FromArgb(25, 70, 130);
-            tbOffshoreMail.Location = new Point(387, 107);
-            tbOffshoreMail.Margin = new Padding(4, 3, 4, 3);
-            tbOffshoreMail.Name = "tbOffshoreMail";
-            tbOffshoreMail.Size = new Size(216, 13);
-            tbOffshoreMail.TabIndex = 11;
-            tbOffshoreMail.Text = "Veerendra.Kotari@cyient.com";
+            this.tbOffshoreMail.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.tbOffshoreMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbOffshoreMail.Font = new System.Drawing.Font("Bell MT", 8.25F, System.Drawing.FontStyle.Underline);
+            this.tbOffshoreMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(70)))), ((int)(((byte)(130)))));
+            this.tbOffshoreMail.Location = new System.Drawing.Point(332, 93);
+            this.tbOffshoreMail.Name = "tbOffshoreMail";
+            this.tbOffshoreMail.Size = new System.Drawing.Size(185, 13);
+            this.tbOffshoreMail.TabIndex = 11;
+            this.tbOffshoreMail.Text = "Veerendra.Kotari@cyient.com";
             // 
             // tbOnsiteMail
             // 
-            tbOnsiteMail.BackColor = SystemColors.GradientActiveCaption;
-            tbOnsiteMail.BorderStyle = BorderStyle.None;
-            tbOnsiteMail.Font = new Font("Bell MT", 8.25F, FontStyle.Underline);
-            tbOnsiteMail.ForeColor = Color.FromArgb(25, 70, 130);
-            tbOnsiteMail.Location = new Point(387, 70);
-            tbOnsiteMail.Margin = new Padding(4, 3, 4, 3);
-            tbOnsiteMail.Name = "tbOnsiteMail";
-            tbOnsiteMail.Size = new Size(216, 13);
-            tbOnsiteMail.TabIndex = 10;
-            tbOnsiteMail.Text = "prakash7808@ihi-g.com";
+            this.tbOnsiteMail.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.tbOnsiteMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbOnsiteMail.Font = new System.Drawing.Font("Bell MT", 8.25F, System.Drawing.FontStyle.Underline);
+            this.tbOnsiteMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(70)))), ((int)(((byte)(130)))));
+            this.tbOnsiteMail.Location = new System.Drawing.Point(332, 61);
+            this.tbOnsiteMail.Name = "tbOnsiteMail";
+            this.tbOnsiteMail.Size = new System.Drawing.Size(185, 13);
+            this.tbOnsiteMail.TabIndex = 10;
+            this.tbOnsiteMail.Text = "prakash7808@ihi-g.com";
             // 
             // tbIHIMail
             // 
-            tbIHIMail.BackColor = SystemColors.GradientActiveCaption;
-            tbIHIMail.BorderStyle = BorderStyle.None;
-            tbIHIMail.Font = new Font("Bell MT", 8.25F, FontStyle.Underline);
-            tbIHIMail.ForeColor = Color.FromArgb(25, 70, 130);
-            tbIHIMail.Location = new Point(387, 32);
-            tbIHIMail.Margin = new Padding(4, 3, 4, 3);
-            tbIHIMail.Name = "tbIHIMail";
-            tbIHIMail.Size = new Size(216, 13);
-            tbIHIMail.TabIndex = 9;
-            tbIHIMail.Text = "ito0114@ihi-g.com";
+            this.tbIHIMail.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.tbIHIMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbIHIMail.Font = new System.Drawing.Font("Bell MT", 8.25F, System.Drawing.FontStyle.Underline);
+            this.tbIHIMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(70)))), ((int)(((byte)(130)))));
+            this.tbIHIMail.Location = new System.Drawing.Point(332, 28);
+            this.tbIHIMail.Name = "tbIHIMail";
+            this.tbIHIMail.Size = new System.Drawing.Size(185, 13);
+            this.tbIHIMail.TabIndex = 9;
+            this.tbIHIMail.Text = "ito0114@ihi-g.com";
             // 
             // lbOffshoreContact
             // 
-            lbOffshoreContact.AutoSize = true;
-            lbOffshoreContact.Font = new Font("Courier New", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbOffshoreContact.Location = new Point(178, 106);
-            lbOffshoreContact.Margin = new Padding(4, 0, 4, 0);
-            lbOffshoreContact.Name = "lbOffshoreContact";
-            lbOffshoreContact.Size = new Size(119, 14);
-            lbOffshoreContact.TabIndex = 5;
-            lbOffshoreContact.Text = "Veerendra Kotari";
+            this.lbOffshoreContact.AutoSize = true;
+            this.lbOffshoreContact.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOffshoreContact.Location = new System.Drawing.Point(153, 92);
+            this.lbOffshoreContact.Name = "lbOffshoreContact";
+            this.lbOffshoreContact.Size = new System.Drawing.Size(119, 14);
+            this.lbOffshoreContact.TabIndex = 5;
+            this.lbOffshoreContact.Text = "Veerendra Kotari";
             // 
             // lbOnsiteContact
             // 
-            lbOnsiteContact.AutoSize = true;
-            lbOnsiteContact.Font = new Font("Courier New", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbOnsiteContact.Location = new Point(178, 69);
-            lbOnsiteContact.Margin = new Padding(4, 0, 4, 0);
-            lbOnsiteContact.Name = "lbOnsiteContact";
-            lbOnsiteContact.Size = new Size(98, 14);
-            lbOnsiteContact.TabIndex = 4;
-            lbOnsiteContact.Text = "Suraj Prakash";
+            this.lbOnsiteContact.AutoSize = true;
+            this.lbOnsiteContact.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOnsiteContact.Location = new System.Drawing.Point(153, 60);
+            this.lbOnsiteContact.Name = "lbOnsiteContact";
+            this.lbOnsiteContact.Size = new System.Drawing.Size(98, 14);
+            this.lbOnsiteContact.TabIndex = 4;
+            this.lbOnsiteContact.Text = "Suraj Prakash";
             // 
             // lblHIContact
             // 
-            lblHIContact.AutoSize = true;
-            lblHIContact.Font = new Font("Courier New", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblHIContact.Location = new Point(178, 32);
-            lblHIContact.Margin = new Padding(4, 0, 4, 0);
-            lblHIContact.Name = "lblHIContact";
-            lblHIContact.Size = new Size(112, 14);
-            lblHIContact.TabIndex = 3;
-            lblHIContact.Text = "Tatsuya Ito San";
+            this.lblHIContact.AutoSize = true;
+            this.lblHIContact.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHIContact.Location = new System.Drawing.Point(153, 28);
+            this.lblHIContact.Name = "lblHIContact";
+            this.lblHIContact.Size = new System.Drawing.Size(112, 14);
+            this.lblHIContact.TabIndex = 3;
+            this.lblHIContact.Text = "Tatsuya Ito San";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Courier New", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(19, 106);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(112, 14);
-            label2.TabIndex = 2;
-            label2.Text = "CYIENT Offshore";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(16, 92);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 14);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "CYIENT Offshore";
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Courier New", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(19, 69);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(98, 14);
-            label1.TabIndex = 1;
-            label1.Text = "CYIENT Onsite";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(16, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 14);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "CYIENT Onsite";
             // 
             // lbContact
             // 
-            lbContact.AutoSize = true;
-            lbContact.Font = new Font("Courier New", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbContact.Location = new Point(19, 32);
-            lbContact.Margin = new Padding(4, 0, 4, 0);
-            lbContact.Name = "lbContact";
-            lbContact.Size = new Size(28, 14);
-            lbContact.TabIndex = 0;
-            lbContact.Text = "IHI";
+            this.lbContact.AutoSize = true;
+            this.lbContact.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbContact.Location = new System.Drawing.Point(16, 28);
+            this.lbContact.Name = "lbContact";
+            this.lbContact.Size = new System.Drawing.Size(28, 14);
+            this.lbContact.TabIndex = 0;
+            this.lbContact.Text = "IHI";
             // 
             // BtnOk
             // 
-            BtnOk.Location = new Point(588, 273);
-            BtnOk.Margin = new Padding(4, 3, 4, 3);
-            BtnOk.Name = "BtnOk";
-            BtnOk.Size = new Size(107, 37);
-            BtnOk.TabIndex = 0;
-            BtnOk.Text = "OK";
-            BtnOk.UseVisualStyleBackColor = true;
-            BtnOk.Click += BtnOk_Click;
+            this.BtnOk.Location = new System.Drawing.Point(504, 237);
+            this.BtnOk.Name = "BtnOk";
+            this.BtnOk.Size = new System.Drawing.Size(92, 32);
+            this.BtnOk.TabIndex = 0;
+            this.BtnOk.Text = "OK";
+            this.BtnOk.UseVisualStyleBackColor = true;
+            this.BtnOk.Click += new System.EventHandler(this.BtnOk_Click);
             // 
             // lbVersion
             // 
-            lbVersion.AutoSize = true;
-            lbVersion.BackColor = SystemColors.GradientActiveCaption;
-            lbVersion.Font = new Font("Verdana", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lbVersion.ForeColor = Color.FromArgb(25, 70, 130);
-            lbVersion.Location = new Point(9, 10);
-            lbVersion.Margin = new Padding(4, 0, 4, 0);
-            lbVersion.Name = "lbVersion";
-            lbVersion.Size = new Size(52, 14);
-            lbVersion.TabIndex = 57;
-            lbVersion.Text = "Version";
+            this.lbVersion.AutoSize = true;
+            this.lbVersion.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.lbVersion.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(70)))), ((int)(((byte)(130)))));
+            this.lbVersion.Location = new System.Drawing.Point(8, 9);
+            this.lbVersion.Name = "lbVersion";
+            this.lbVersion.Size = new System.Drawing.Size(52, 14);
+            this.lbVersion.TabIndex = 57;
+            this.lbVersion.Text = "Version";
             // 
             // lbDate
             // 
-            lbDate.AutoSize = true;
-            lbDate.BackColor = SystemColors.GradientActiveCaption;
-            lbDate.Font = new Font("Verdana", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lbDate.ForeColor = Color.FromArgb(25, 70, 130);
-            lbDate.Location = new Point(142, 10);
-            lbDate.Margin = new Padding(4, 0, 4, 0);
-            lbDate.Name = "lbDate";
-            lbDate.Size = new Size(35, 14);
-            lbDate.TabIndex = 58;
-            lbDate.Text = "Date";
+            this.lbDate.AutoSize = true;
+            this.lbDate.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.lbDate.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(70)))), ((int)(((byte)(130)))));
+            this.lbDate.Location = new System.Drawing.Point(122, 9);
+            this.lbDate.Name = "lbDate";
+            this.lbDate.Size = new System.Drawing.Size(35, 14);
+            this.lbDate.TabIndex = 58;
+            this.lbDate.Text = "Date";
             // 
             // UIAbout
             // 
-            AcceptButton = BtnOk;
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(702, 321);
-            Controls.Add(lbDate);
-            Controls.Add(lbVersion);
-            Controls.Add(BtnOk);
-            Controls.Add(grbContactDet);
-            Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.Fixed3D;
-            KeyPreview = true;
-            Margin = new Padding(4, 3, 4, 3);
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "UIAbout";
-            ShowInTaskbar = false;
-            Text = "Fetch Cautions V1.0";
-            Load += UIAbout_Load;
-            panel1.ResumeLayout(false);
-            grbContactDet.ResumeLayout(false);
-            grbContactDet.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AcceptButton = this.BtnOk;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(602, 278);
+            this.Controls.Add(this.lbDate);
+            this.Controls.Add(this.lbVersion);
+            this.Controls.Add(this.BtnOk);
+            this.Controls.Add(this.grbContactDet);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "UIAbout";
+            this.ShowInTaskbar = false;
+            this.Text = "Fetch Cautions V1.0";
+            this.Load += new System.EventHandler(this.UIAbout_Load);
+            this.panel1.ResumeLayout(false);
+            this.grbContactDet.ResumeLayout(false);
+            this.grbContactDet.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

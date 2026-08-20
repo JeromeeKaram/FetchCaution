@@ -16,6 +16,13 @@ namespace ExtractCautionsForEM
     public partial class Form1 : Form
     {
         private string OUTPUT_FILENAME = "CautionsList.xlsx";
+
+        private const string SP_72_35_EM_LINK_TEXT = "SP-72-35 Special Procedures - High Pressure Compressor (HPC) Module - Engine Manual (Base Engine Models)";
+        private const string SP_72_35_CIR_LINK_TEXT = "SP-72-35 Special Procedures - High Pressure Compressor (HPC) Module - Clean, Inspect, And Repair (CIR)";
+
+        private const string SP_72_51_EM_LINK_TEXT = "SP-72-51 Special Procedures - High Pressure Turbine (HPT) Module - Engine Manual (Base Engine Models)";
+        private const string SP_72_51_CIR_LINK_TEXT = "SP-72-51 Special Procedures - High Pressure Turbine (HPT) Module - Clean, Inspect, And Repair (CIR)";
+
         public Form1()
         {
             InitializeComponent();
@@ -172,13 +179,11 @@ namespace ExtractCautionsForEM
             }
             else if (moduleType == ModuleType.SP72_35)
             {
-                var headerText = "SP-72-35 Special Procedures - High Pressure Compressor (HPC) Module - Clean, Inspect, And Repair (CIR)";
-                fileNames = ExtractSPLinks(url, moduleType, headerText);
+                fileNames = ExtractSPLinks(url, moduleType);
             }
             else if (moduleType == ModuleType.SP72_51)
             {
-                var headerText = "SP-72-51 Special Procedures - High Pressure Turbine (HPT) Module - Clean, Inspect, And Repair (CIR)";
-                fileNames = ExtractSPLinks(url, moduleType, headerText);
+                fileNames = ExtractSPLinks(url, moduleType);
             }
 
             if (fileNames == null)
@@ -235,7 +240,7 @@ namespace ExtractCautionsForEM
             return lstmods;
         }
 
-        private List<string> ExtractSPLinks(string url, ModuleType moduleType, string headerText)
+        private List<string> ExtractSPLinks(string url, ModuleType moduleType)
         {
             try
             {
@@ -256,15 +261,15 @@ namespace ExtractCautionsForEM
 
                         if (navLinkDiv != null)
                         {
-                            string text = navLinkDiv.InnerText.Trim();
+                            string linkText = navLinkDiv.InnerText.Trim();
 
                             if (moduleType == ModuleType.SP72_51)
                             {
-                                if (text != "SP-72-51 Special Procedures - High Pressure Turbine (HPT) Module - Clean, Inspect, And Repair (CIR)") continue;
+                                if (!IsEmOrCirLinkFor72_51_Manual(linkText)) continue;
                             }
                             else if (moduleType == ModuleType.SP72_35)
                             {
-                                if (text != "SP-72-35 Special Procedures - High Pressure Compressor (HPC) Module - Clean, Inspect, And Repair (CIR)") continue;
+                                if (!IsEmOrCirLinkFor72_35_Manual(linkText)) continue;
                             }
 
                             var dmcValues = li.SelectNodes(".//div[contains(@class,'navDocument') and contains(@class,'hide')]")
@@ -276,8 +281,6 @@ namespace ExtractCautionsForEM
                             {
                                 htmlPages.AddRange(dmcValues);
                             }
-
-                            break;
                         }
                     }
                 }
@@ -289,6 +292,24 @@ namespace ExtractCautionsForEM
                 MessageBox.Show($"Error extracting SP links: {ex.Message}");
                 return null;
             }
+        }
+
+        private bool IsEmOrCirLinkFor72_35_Manual(string linkText)
+        {
+            if (linkText == SP_72_35_EM_LINK_TEXT || linkText == SP_72_35_CIR_LINK_TEXT)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool IsEmOrCirLinkFor72_51_Manual(string linkText)
+        {
+            if (linkText == SP_72_51_EM_LINK_TEXT || linkText == SP_72_51_CIR_LINK_TEXT)
+            {
+                return true;
+            }
+            return false;
         }
 
         List<string> SplitString(string sValue, string schar)
@@ -415,17 +436,17 @@ namespace ExtractCautionsForEM
         {
 #if DEBUG
             //txtUrl.Text = "http://127.0.0.1:8000/PW1000G-77445-19453-00/PW1000G-77445-15653-00.html"; //EM_CIR
-            //txtUrl.Text = "http://127.0.0.1:8003/PW1000G-77445-19453-00/PW1000G-77445-16992-00.html"; //EM
-            //txtUrl.Text = "http://127.0.0.1:8004/PW1000G-77445-19155-00/"; //SP_CIR_72_35
-            //txtUrl.Text = "http://127.0.0.1:8005/PW1000G-77445-19156-00/"; //SP_CIR_72_51
+            //txtUrl.Text = "http://127.0.0.1:8000/PW1000G-77445-19453-00/PW1000G-77445-16992-00.html"; //EM
+            //txtUrl.Text = "http://127.0.0.1:8001/PW1000G-77445-19155-00/"; //SP_CIR_72_35
+            //txtUrl.Text = "http://127.0.0.1:8002/PW1000G-77445-19156-00/"; //SP_CIR_72_51
 #endif
 
             cmbModule.DataSource = new List<KeyValuePair<string, string>>
 {
     new KeyValuePair<string, string>(ModuleType.EM_CIR.ToString(), "Engine Manual CIR"),
     new KeyValuePair<string, string>(ModuleType.EM.ToString(), "Engine Manual"),
-    new KeyValuePair<string, string>(ModuleType.SP72_35.ToString(), "SP 72-35"),
-    new KeyValuePair<string, string>(ModuleType.SP72_51.ToString(), "SP 72-51")
+    new KeyValuePair<string, string>(ModuleType.SP72_35.ToString(), "SP 72-35 (EM & CIR)"),
+    new KeyValuePair<string, string>(ModuleType.SP72_51.ToString(), "SP 72-51 (EM & CIR)")
 };
 
             cmbModule.DisplayMember = "Value";

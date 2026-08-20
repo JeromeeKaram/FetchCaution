@@ -118,9 +118,9 @@ namespace ExtractCautionsForEM
             this.lblHeader.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeader.Location = new System.Drawing.Point(145, 32);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(544, 25);
+            this.lblHeader.Size = new System.Drawing.Size(642, 25);
             this.lblHeader.TabIndex = 11;
-            this.lblHeader.Text = "Extract Cautions From Engine Manual Tool V1.0";
+            this.lblHeader.Text = "PW1100G Inspection Task_Caution Extraction Tool V1.0";
             this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
@@ -161,11 +161,11 @@ namespace ExtractCautionsForEM
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(29, 66);
+            this.label3.Location = new System.Drawing.Point(70, 68);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(173, 14);
+            this.label3.Size = new System.Drawing.Size(125, 14);
             this.label3.TabIndex = 16;
-            this.label3.Text = "Enter Engine Manual Link";
+            this.label3.Text = "Enter Manual Link";
             // 
             // cmbModule
             // 
@@ -181,21 +181,21 @@ namespace ExtractCautionsForEM
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(29, 100);
+            this.label2.Location = new System.Drawing.Point(42, 102);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(164, 14);
+            this.label2.Size = new System.Drawing.Size(157, 14);
             this.label2.TabIndex = 14;
-            this.label2.Text = "Choose Output Location";
+            this.label2.Text = "Select Output Location";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(29, 30);
+            this.label1.Location = new System.Drawing.Point(94, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 14);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Select Module";
+            this.label1.Text = "Select Manual";
             // 
             // btnBrowseOutputPath
             // 
@@ -224,7 +224,7 @@ namespace ExtractCautionsForEM
             this.btnFetchCaution.Name = "btnFetchCaution";
             this.btnFetchCaution.Size = new System.Drawing.Size(185, 29);
             this.btnFetchCaution.TabIndex = 10;
-            this.btnFetchCaution.Text = "Fetch Cautions";
+            this.btnFetchCaution.Text = "Run";
             this.btnFetchCaution.UseVisualStyleBackColor = false;
             this.btnFetchCaution.Click += new System.EventHandler(this.btnFetchCaution_Click);
             // 
@@ -241,7 +241,7 @@ namespace ExtractCautionsForEM
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Extract Cautions From Engine Manual Tool V1.0";
+            this.Text = "PW1100G Inspection Task_Caution Extraction Tool V1.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
