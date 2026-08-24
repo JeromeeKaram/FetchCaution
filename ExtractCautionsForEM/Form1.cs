@@ -273,9 +273,14 @@ namespace ExtractCautionsForEM
                             }
 
                             var dmcValues = li.SelectNodes(".//div[contains(@class,'navDocument') and contains(@class,'hide')]")
-                                  ?.Select(x => x.GetAttributeValue("data-dmc", ""))
-                                  .Where(x => !string.IsNullOrWhiteSpace(x))
-                                  .ToList();
+                                      ?.Select(x => x.GetAttributeValue("data-dmc", ""))
+                                      .Where(x => !string.IsNullOrWhiteSpace(x))
+                                      .ToList();
+
+                            if (linkText == SP_72_35_EM_LINK_TEXT || linkText == SP_72_51_EM_LINK_TEXT)
+                            {
+                                dmcValues = dmcValues.Where(x => x.Split('-').Length > 6 && x.Split('-')[6].StartsWith("3")).ToList();
+                            }
 
                             if (dmcValues != null)
                             {

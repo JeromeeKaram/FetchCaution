@@ -17,7 +17,7 @@ namespace ExtractCautionsForEM
         public static string m_sTempPath = "";
         public static string m_sToolName = "PW1100G Inspection Task_Caution Extraction Tool";
         public static string m_sVersion = "1.0";
-        public static string m_sDate = "20-August-26";
+        public static string m_sDate = "25-August-26";
         public static string m_sBinPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory);
 
         public static Dictionary<string, string> m_dtReplaceTexts = new Dictionary<string, string>();
