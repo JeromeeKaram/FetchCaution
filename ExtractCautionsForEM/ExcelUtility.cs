@@ -61,7 +61,7 @@ public static class ExcelUtility
             worksheet.Column(1).Width = 35;
             worksheet.Column(2).Width = 70;
             worksheet.Column(3).Width = 100;
-            
+
 
             // Header formatting
             using (var range = worksheet.Cells[1, 1, 1, columnNames.Count()])
@@ -116,7 +116,7 @@ public static class ExcelUtility
 
         int excelRow = worksheet.Dimension?.End.Row + 1 ?? 2;
 
-        if (sheetName == "Cautions")
+        if (sheetName == "All" || sheetName == "All EM" || sheetName == "All CIR" || sheetName == "3Series")
         {
             foreach (var caution in lstCautions)
             {

@@ -1,6 +1,7 @@
 using ExtractCautionsForEM;
 using ExtractCautionsForEM.About;
 using HtmlAgilityPack;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -49,6 +50,25 @@ namespace ExtractCautionsForEM
             progressBar1.Visible = true;
 
             var fileNames = new List<string>();
+            var fileNames3Series = new List<string>();
+
+            //List<string> eM_all;
+            //List<string> eM_3Series;
+
+            //List<string> eM_CIR_All;
+            //List<string> eM_CIR_3Series;
+
+            List<Caution> allCautions;
+            List<Caution> threeSeriesCautions;
+
+            var sP_EM_All_DMCs = new List<string>();
+            var sP_CIR_All_DMCs = new List<string>();
+            var sP_EM_CIR_3Series_DMCs = new List<string>();
+
+            List<Caution> sP_EM_All_Cautions;
+            List<Caution> sP_CIR_All_Cautions;
+            var sP_EM_CIR_3Series_Cautions = new List<Caution>();
+
             try
             {
                 await Task.Run(() =>
@@ -56,17 +76,26 @@ namespace ExtractCautionsForEM
                     switch ((ModuleType)Enum.Parse(typeof(ModuleType), key))
                     {
                         case ModuleType.EM_CIR: // EM_CIR
-                            fileNames = FetchLinks(url, ModuleType.EM_CIR);
+                        case ModuleType.EM: // EM
+
+                            List<ModuleInfo> lstmodsEM = extract_task(url);
+
+                            foreach (ModuleInfo mod in lstmodsEM)
+                            {
+                                foreach (TaskInfo task in mod.m_lstTasks)
+                                {
+                                    fileNames.Add(task.m_sHtmlLink);
+                                }
+                            }
+
                             break;
-                        case ModuleType.EM:
-                            fileNames = FetchLinks(url, ModuleType.EM);
-                            fileNames = fileNames.Where(x => x.Split('-').Length > 6 && x.Split('-')[6].StartsWith("3")).ToList();
-                            break;
+
                         case ModuleType.SP72_35:
-                            fileNames = FetchLinks(url, ModuleType.SP72_35);
+                            (sP_EM_All_DMCs, sP_CIR_All_DMCs) = ExtractSPLinks(url, ModuleType.SP72_35);
                             break;
+
                         case ModuleType.SP72_51:
-                            fileNames = FetchLinks(url, ModuleType.SP72_51);
+                            (sP_EM_All_DMCs, sP_CIR_All_DMCs) = ExtractSPLinks(url, ModuleType.SP72_51);
                             break;
 
                     }
@@ -76,29 +105,37 @@ namespace ExtractCautionsForEM
                         return;
                     }
 
-                    var cautionList = new List<Caution>();
+                    var columnNames = new List<string> { "DMC", "Title", "CautionText" };
+                    var excelInstance = new OfficeOpenXml.ExcelPackage();
 
-                    foreach (var fileName in fileNames)
+                    if (key == ModuleType.EM.ToString() || key == ModuleType.EM_CIR.ToString())
                     {
-                        var newUrl = url.Substring(0, url.LastIndexOf('/') + 1) + fileName;
-                        var cautions = FetchCautions(newUrl);
-                        cautionList.AddRange(cautions);
+                        allCautions = GetCautions(fileNames, url).Where(c => c.HasCautions == true).ToList();
+                        threeSeriesCautions = allCautions.Where(a => a.Is3Series == true).ToList();
+
+                        excelInstance = ExcelUtility.CreateExcelWithColumns(txtOutPutPath.Text, columnNames, "All", "3Series");
+
+                        ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, allCautions, "All");
+                        ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, threeSeriesCautions, "3Series");
+                    }
+                    else
+                    {
+                        sP_EM_All_Cautions = GetCautions(sP_EM_All_DMCs, url).Where(c => c.HasCautions == true).ToList();
+                        sP_CIR_All_Cautions = GetCautions(sP_CIR_All_DMCs, url).Where(c => c.HasCautions == true).ToList();
+
+                        var sP_EM_3Series = sP_EM_All_Cautions.Where(a => a.Is3Series == true).ToList();
+                        var sP_CIR_3Series = sP_CIR_All_Cautions.Where(a => a.Is3Series == true).ToList();
+
+                        sP_EM_CIR_3Series_Cautions.AddRange(sP_EM_3Series);
+                        sP_EM_CIR_3Series_Cautions.AddRange(sP_CIR_3Series);
+
+                        excelInstance = ExcelUtility.CreateExcelWithColumns(txtOutPutPath.Text, columnNames, "All EM", "All CIR", "3Series");
+
+                        ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, sP_EM_All_Cautions, "All EM");
+                        ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, sP_CIR_All_Cautions, "All CIR");
+                        ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, sP_EM_CIR_3Series_Cautions, "3Series");
                     }
 
-                    var columnNames = new List<string> { "DMC", "Title", "CautionText" };
-
-                    //Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-#if DEBUG
-                    var excelInstance = ExcelUtility.CreateExcelWithColumns(txtOutPutPath.Text, columnNames, "Cautions", "NoCautions");
-#else
-                    var excelInstance = ExcelUtility.CreateExcelWithColumns(txtOutPutPath.Text, columnNames, "Cautions");
-#endif
-                    var allCautions = cautionList.Where(c => c.CautionText != "No Caution Text Found.").ToList();
-                    var noCautions = cautionList.Where(c => c.CautionText == "No Caution Text Found.").ToList();
-                    ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, allCautions, "Cautions");
-#if DEBUG
-                    ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, noCautions, "NoCautions");
-#endif
                     excelInstance.Save();
                     MessageBox.Show("Finished Fetching Cautions");
 
@@ -115,6 +152,26 @@ namespace ExtractCautionsForEM
             }
         }
 
+
+        private List<Caution> GetCautions(List<string> fileNames, string url)
+        {
+            var cautionList = new List<Caution>();
+
+            foreach (var fileName in fileNames)
+            {
+                var newUrl = url.Substring(0, url.LastIndexOf('/') + 1) + fileName;
+                bool is3Series = false;
+
+                if (fileName.Split('-').Length > 6 && fileName.Split('-')[6].StartsWith("3"))
+                {
+                    is3Series = true;
+                }
+
+                var cautions = FetchCautions(newUrl, is3Series);
+                cautionList.AddRange(cautions);
+            }
+            return cautionList;
+        }
 
         public bool ValidateOutputFolder(TextBox textBox)
         {
@@ -160,39 +217,39 @@ namespace ExtractCautionsForEM
             return true;
         }
 
-        private List<string> FetchLinks(string url, ModuleType moduleType)
-        {
-            //url - http://127.0.0.1:8000/PW1000G-77445-19453-00/PW1000G-77445-15653-00.html
-            List<string> fileNames = new List<string>();
+        //private List<string> FetchLinks(string url, ModuleType moduleType)
+        //{
+        //    //url - http://127.0.0.1:8000/PW1000G-77445-19453-00/PW1000G-77445-15653-00.html
+        //    List<string> fileNames = new List<string>();
 
-            if (moduleType == ModuleType.EM_CIR || moduleType == ModuleType.EM)
-            {
-                List<ModuleInfo> lstmods = extract_task(url);
+        //    //if (moduleType == ModuleType.EM_CIR || moduleType == ModuleType.EM)
+        //    //{
+        //    //    List<ModuleInfo> lstmods = extract_task(url);
 
-                foreach (ModuleInfo mod in lstmods)
-                {
-                    foreach (TaskInfo task in mod.m_lstTasks)
-                    {
-                        fileNames.Add(task.m_sHtmlLink);
-                    }
-                }
-            }
-            else if (moduleType == ModuleType.SP72_35)
-            {
-                fileNames = ExtractSPLinks(url, moduleType);
-            }
-            else if (moduleType == ModuleType.SP72_51)
-            {
-                fileNames = ExtractSPLinks(url, moduleType);
-            }
+        //    //    foreach (ModuleInfo mod in lstmods)
+        //    //    {
+        //    //        foreach (TaskInfo task in mod.m_lstTasks)
+        //    //        {
+        //    //            fileNames.Add(task.m_sHtmlLink);
+        //    //        }
+        //    //    }
+        //    //}
+        //    if (moduleType == ModuleType.SP72_35)
+        //    {
+        //        fileNames = ExtractSPLinks(url, moduleType);
+        //    }
+        //    else if (moduleType == ModuleType.SP72_51)
+        //    {
+        //        fileNames = ExtractSPLinks(url, moduleType);
+        //    }
 
-            if (fileNames == null)
-            {
-                return null;
-            }
+        //    if (fileNames == null)
+        //    {
+        //        return null;
+        //    }
 
-            return fileNames;
-        }
+        //    return fileNames;
+        //}
 
         private List<ModuleInfo> extract_task(string path)
         {
@@ -240,14 +297,15 @@ namespace ExtractCautionsForEM
             return lstmods;
         }
 
-        private List<string> ExtractSPLinks(string url, ModuleType moduleType)
+        private (List<string> dmcs_em_all, List<string> dmcs_cir_all) ExtractSPLinks(string url, ModuleType moduleType)
         {
             try
             {
                 var web = new HtmlWeb();
                 var doc = web.Load(url);
 
-                var htmlPages = new List<string>();
+                var DMCs_EM_All = new List<string>();
+                var DMCs_CIR_All = new List<string>();
 
                 var ulNode = doc.DocumentNode.SelectSingleNode("//ul[contains(@class,'navList')]");
 
@@ -272,30 +330,31 @@ namespace ExtractCautionsForEM
                                 if (!IsEmOrCirLinkFor72_35_Manual(linkText)) continue;
                             }
 
-                            var dmcValues = li.SelectNodes(".//div[contains(@class,'navDocument') and contains(@class,'hide')]")
-                                      ?.Select(x => x.GetAttributeValue("data-dmc", ""))
-                                      .Where(x => !string.IsNullOrWhiteSpace(x))
-                                      .ToList();
+                            var dmcs = li.SelectNodes(".//div[contains(@class,'navDocument') and contains(@class,'hide')]")
+                                          ?.Select(x => x.GetAttributeValue("data-dmc", ""))
+                                          .Where(x => !string.IsNullOrWhiteSpace(x))
+                                          .ToList();
 
-                            if (linkText == SP_72_35_EM_LINK_TEXT || linkText == SP_72_51_EM_LINK_TEXT)
+                            if (dmcs != null)
                             {
-                                dmcValues = dmcValues.Where(x => x.Split('-').Length > 6 && x.Split('-')[6].StartsWith("3")).ToList();
-                            }
-
-                            if (dmcValues != null)
-                            {
-                                htmlPages.AddRange(dmcValues);
+                                if (linkText == SP_72_35_CIR_LINK_TEXT || linkText == SP_72_51_CIR_LINK_TEXT)
+                                {
+                                    DMCs_CIR_All.AddRange(dmcs);
+                                }
+                                else if (linkText == SP_72_35_EM_LINK_TEXT || linkText == SP_72_35_EM_LINK_TEXT)
+                                {
+                                    DMCs_EM_All.AddRange(dmcs);
+                                }
                             }
                         }
                     }
                 }
-
-                return htmlPages;
+                return (DMCs_EM_All, DMCs_CIR_All);
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error extracting SP links: {ex.Message}");
-                return null;
+                return (null, null);
             }
         }
 
@@ -362,7 +421,7 @@ namespace ExtractCautionsForEM
             return lst;
         }
 
-        private List<Caution> FetchCautions(string url)
+        private List<Caution> FetchCautions(string url, bool is3Series)
         {
             var web = new HtmlWeb();
             var doc = web.Load(url);
@@ -403,7 +462,9 @@ namespace ExtractCautionsForEM
                         DMC = dmc,
                         Title = title,
                         CautionText = cautionText,
-                        NewUrl = url
+                        NewUrl = url,
+                        HasCautions = true,
+                        Is3Series = is3Series,
                     });
                 }
             }
@@ -414,7 +475,9 @@ namespace ExtractCautionsForEM
                     DMC = dmc,
                     Title = title,
                     CautionText = "No Caution Text Found.",
-                    NewUrl = url
+                    NewUrl = url,
+                    HasCautions = false,
+                    Is3Series = is3Series,
                 });
             }
 
