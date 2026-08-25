@@ -52,12 +52,6 @@ namespace ExtractCautionsForEM
             var fileNames = new List<string>();
             var fileNames3Series = new List<string>();
 
-            //List<string> eM_all;
-            //List<string> eM_3Series;
-
-            //List<string> eM_CIR_All;
-            //List<string> eM_CIR_3Series;
-
             List<Caution> allCautions;
             List<Caution> threeSeriesCautions;
 
