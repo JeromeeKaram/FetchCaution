@@ -335,7 +335,7 @@ namespace ExtractCautionsForEM
                                 {
                                     DMCs_CIR_All.AddRange(dmcs);
                                 }
-                                else if (linkText == SP_72_35_EM_LINK_TEXT || linkText == SP_72_35_EM_LINK_TEXT)
+                                else if (linkText == SP_72_35_EM_LINK_TEXT || linkText == SP_72_51_EM_LINK_TEXT)
                                 {
                                     DMCs_EM_All.AddRange(dmcs);
                                 }
