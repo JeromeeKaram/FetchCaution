@@ -545,7 +545,7 @@ namespace ExtractCautionsForEM
             }
             else if (key == ModuleType.EM_CIR.ToString())
             {
-                fileName = "EMCIR Cautions.xlsx";
+                fileName = "CIR Cautions.xlsx";
             }
             else if (key == ModuleType.SP72_35.ToString())
             {

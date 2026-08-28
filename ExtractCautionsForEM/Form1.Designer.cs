@@ -116,7 +116,7 @@ namespace ExtractCautionsForEM
             // 
             this.lblHeader.AutoSize = true;
             this.lblHeader.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(145, 32);
+            this.lblHeader.Location = new System.Drawing.Point(164, 33);
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(577, 25);
             this.lblHeader.TabIndex = 11;
@@ -143,16 +143,16 @@ namespace ExtractCautionsForEM
             this.groupBox1.Controls.Add(this.btnBrowseOutputPath);
             this.groupBox1.Controls.Add(this.txtOutPutPath);
             this.groupBox1.Controls.Add(this.btnFetchCaution);
-            this.groupBox1.Location = new System.Drawing.Point(12, 72);
+            this.groupBox1.Location = new System.Drawing.Point(29, 72);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(808, 177);
+            this.groupBox1.Size = new System.Drawing.Size(791, 177);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             // 
             // txtUrl
             // 
             this.txtUrl.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUrl.Location = new System.Drawing.Point(216, 62);
+            this.txtUrl.Location = new System.Drawing.Point(196, 62);
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.Size = new System.Drawing.Size(563, 22);
             this.txtUrl.TabIndex = 17;
@@ -161,7 +161,7 @@ namespace ExtractCautionsForEM
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(70, 68);
+            this.label3.Location = new System.Drawing.Point(50, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 14);
             this.label3.TabIndex = 16;
@@ -172,7 +172,7 @@ namespace ExtractCautionsForEM
             this.cmbModule.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbModule.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbModule.FormattingEnabled = true;
-            this.cmbModule.Location = new System.Drawing.Point(216, 27);
+            this.cmbModule.Location = new System.Drawing.Point(196, 27);
             this.cmbModule.Name = "cmbModule";
             this.cmbModule.Size = new System.Drawing.Size(563, 22);
             this.cmbModule.TabIndex = 15;
@@ -181,7 +181,7 @@ namespace ExtractCautionsForEM
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(42, 102);
+            this.label2.Location = new System.Drawing.Point(22, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(157, 14);
             this.label2.TabIndex = 14;
@@ -191,7 +191,7 @@ namespace ExtractCautionsForEM
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(94, 32);
+            this.label1.Location = new System.Drawing.Point(74, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 14);
             this.label1.TabIndex = 13;
@@ -199,7 +199,7 @@ namespace ExtractCautionsForEM
             // 
             // btnBrowseOutputPath
             // 
-            this.btnBrowseOutputPath.Location = new System.Drawing.Point(711, 97);
+            this.btnBrowseOutputPath.Location = new System.Drawing.Point(691, 97);
             this.btnBrowseOutputPath.Name = "btnBrowseOutputPath";
             this.btnBrowseOutputPath.Size = new System.Drawing.Size(68, 22);
             this.btnBrowseOutputPath.TabIndex = 12;
@@ -210,7 +210,7 @@ namespace ExtractCautionsForEM
             // txtOutPutPath
             // 
             this.txtOutPutPath.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOutPutPath.Location = new System.Drawing.Point(216, 97);
+            this.txtOutPutPath.Location = new System.Drawing.Point(196, 97);
             this.txtOutPutPath.Name = "txtOutPutPath";
             this.txtOutPutPath.Size = new System.Drawing.Size(489, 22);
             this.txtOutPutPath.TabIndex = 11;
@@ -220,7 +220,7 @@ namespace ExtractCautionsForEM
             this.btnFetchCaution.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnFetchCaution.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnFetchCaution.ForeColor = System.Drawing.Color.White;
-            this.btnFetchCaution.Location = new System.Drawing.Point(332, 133);
+            this.btnFetchCaution.Location = new System.Drawing.Point(312, 133);
             this.btnFetchCaution.Name = "btnFetchCaution";
             this.btnFetchCaution.Size = new System.Drawing.Size(185, 29);
             this.btnFetchCaution.TabIndex = 10;
