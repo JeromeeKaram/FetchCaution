@@ -33,7 +33,7 @@ namespace ExtractCautionsForEM
         {
             if (string.IsNullOrEmpty(txtUrl.Text))
             {
-                MessageBox.Show("Please Engine Manual Link.");
+                MessageBox.Show("Please enter Engine Manual Link.");
                 return;
             }
 
@@ -102,15 +102,42 @@ namespace ExtractCautionsForEM
                     var columnNames = new List<string> { "DMC", "Title", "CautionText" };
                     var excelInstance = new OfficeOpenXml.ExcelPackage();
 
+                    var firstSheetName = "";
+                    var secondSheetName = "";
+                    var thirdSheetName = "";
+
+                    if (key == ModuleType.EM.ToString())
+                    {
+                        firstSheetName = "EM (All)";
+                        secondSheetName = "EM (IC-3xx)";
+                    }
+                    else if (key == ModuleType.EM_CIR.ToString())
+                    {
+                        firstSheetName = "CIR (All)";
+                        secondSheetName = "CIR (IC-3xx)";
+                    }
+                    else if (key == ModuleType.SP72_35.ToString())
+                    {
+                        firstSheetName = "EM (All)";
+                        secondSheetName = "CIR (All)";
+                        thirdSheetName = "3Series";
+                    }
+                    else if (key == ModuleType.SP72_51.ToString())
+                    {
+                        firstSheetName = "EM (All)";
+                        secondSheetName = "CIR (All)";
+                        thirdSheetName = "EM&CIR (IC-3xx)";
+                    }
+
                     if (key == ModuleType.EM.ToString() || key == ModuleType.EM_CIR.ToString())
                     {
                         allCautions = GetCautions(fileNames, url).Where(c => c.HasCautions == true).ToList();
                         threeSeriesCautions = allCautions.Where(a => a.Is3Series == true).ToList();
 
-                        excelInstance = ExcelUtility.CreateExcelWithColumns(txtOutPutPath.Text, columnNames, "All", "3Series");
+                        excelInstance = ExcelUtility.CreateExcelWithColumns(txtOutPutPath.Text, columnNames, firstSheetName, secondSheetName);
 
-                        ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, allCautions, "All");
-                        ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, threeSeriesCautions, "3Series");
+                        ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, allCautions, firstSheetName);
+                        ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, threeSeriesCautions, secondSheetName);
                     }
                     else
                     {
@@ -123,11 +150,11 @@ namespace ExtractCautionsForEM
                         sP_EM_CIR_3Series_Cautions.AddRange(sP_EM_3Series);
                         sP_EM_CIR_3Series_Cautions.AddRange(sP_CIR_3Series);
 
-                        excelInstance = ExcelUtility.CreateExcelWithColumns(txtOutPutPath.Text, columnNames, "All EM", "All CIR", "3Series");
+                        excelInstance = ExcelUtility.CreateExcelWithColumns(txtOutPutPath.Text, columnNames, firstSheetName, secondSheetName, thirdSheetName);
 
-                        ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, sP_EM_All_Cautions, "All EM");
-                        ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, sP_CIR_All_Cautions, "All CIR");
-                        ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, sP_EM_CIR_3Series_Cautions, "3Series");
+                        ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, sP_EM_All_Cautions, firstSheetName);
+                        ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, sP_CIR_All_Cautions, secondSheetName);
+                        ExcelUtility.SVCWriteOldSheet_EPPlus1(excelInstance, sP_EM_CIR_3Series_Cautions, thirdSheetName);
                     }
 
                     excelInstance.Save();
