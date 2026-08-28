@@ -16,7 +16,6 @@ namespace ExtractCautionsForEM
 {
     public partial class Form1 : Form
     {
-        private string OUTPUT_FILENAME = "CautionsList.xlsx";
 
         private const string SP_72_35_EM_LINK_TEXT = "SP-72-35 Special Procedures - High Pressure Compressor (HPC) Module - Engine Manual (Base Engine Models)";
         private const string SP_72_35_CIR_LINK_TEXT = "SP-72-35 Special Procedures - High Pressure Compressor (HPC) Module - Clean, Inspect, And Repair (CIR)";
@@ -27,6 +26,7 @@ namespace ExtractCautionsForEM
         public Form1()
         {
             InitializeComponent();
+            this.MaximizeBox= false;
         }
 
         private async void btnFetchCaution_Click(object sender, EventArgs e)
@@ -102,32 +102,7 @@ namespace ExtractCautionsForEM
                     var columnNames = new List<string> { "DMC", "Title", "CautionText" };
                     var excelInstance = new OfficeOpenXml.ExcelPackage();
 
-                    var firstSheetName = "";
-                    var secondSheetName = "";
-                    var thirdSheetName = "";
-
-                    if (key == ModuleType.EM.ToString())
-                    {
-                        firstSheetName = "EM (All)";
-                        secondSheetName = "EM (IC-3xx)";
-                    }
-                    else if (key == ModuleType.EM_CIR.ToString())
-                    {
-                        firstSheetName = "CIR (All)";
-                        secondSheetName = "CIR (IC-3xx)";
-                    }
-                    else if (key == ModuleType.SP72_35.ToString())
-                    {
-                        firstSheetName = "EM (All)";
-                        secondSheetName = "CIR (All)";
-                        thirdSheetName = "EM&CIR (IC-3xx)";
-                    }
-                    else if (key == ModuleType.SP72_51.ToString())
-                    {
-                        firstSheetName = "EM (All)";
-                        secondSheetName = "CIR (All)";
-                        thirdSheetName = "EM&CIR (IC-3xx)";
-                    }
+                    var (firstSheetName, secondSheetName, thirdSheetName) = GetSheetNames();
 
                     if (key == ModuleType.EM.ToString() || key == ModuleType.EM_CIR.ToString())
                     {
@@ -171,6 +146,40 @@ namespace ExtractCautionsForEM
             {
                 progressBar1.Visible = false;
             }
+        }
+
+        private (string firstSheetName, string secondSheetName, string thirdSheetName) GetSheetNames()
+        {
+            var firstSheetName = "";
+            var secondSheetName = "";
+            var thirdSheetName = "";
+
+            var selectedItem = (KeyValuePair<string, string>)cmbModule.SelectedItem;
+            var key = selectedItem.Key;
+
+            if (key == ModuleType.EM.ToString())
+            {
+                firstSheetName = "EM (All)";
+                secondSheetName = "EM (IC-3xx)";
+            }
+            else if (key == ModuleType.EM_CIR.ToString())
+            {
+                firstSheetName = "CIR (All)";
+                secondSheetName = "CIR (IC-3xx)";
+            }
+            else if (key == ModuleType.SP72_35.ToString())
+            {
+                firstSheetName = "EM (All)";
+                secondSheetName = "CIR (All)";
+                thirdSheetName = "EM&CIR (IC-3xx)";
+            }
+            else if (key == ModuleType.SP72_51.ToString())
+            {
+                firstSheetName = "EM (All)";
+                secondSheetName = "CIR (All)";
+                thirdSheetName = "EM&CIR (IC-3xx)";
+            }
+            return (firstSheetName, secondSheetName, thirdSheetName);
         }
 
 
@@ -507,9 +516,11 @@ namespace ExtractCautionsForEM
 
         private void btnBrowseOutputPath_Click(object sender, EventArgs e)
         {
+            var fileName = GetOutputFileName();
+
             using (SaveFileDialog folderDialog = new SaveFileDialog())
             {
-                folderDialog.FileName = OUTPUT_FILENAME;
+                folderDialog.FileName = fileName;
                 folderDialog.Title = "Select output file path";
                 folderDialog.Filter = "Excel Files (*.xlsx)|*.xlsx|All Files (*.*)|*.*";
 
@@ -519,6 +530,33 @@ namespace ExtractCautionsForEM
                     txtOutPutPath.Text = selectedPath;
                 }
             }
+        }
+
+        private string GetOutputFileName()
+        {
+            string fileName = "";
+
+            var selectedItem = (KeyValuePair<string, string>)cmbModule.SelectedItem;
+            var key = selectedItem.Key;
+
+            if (key == ModuleType.EM.ToString())
+            {
+                fileName = "EM Cautions.xlsx";
+            }
+            else if (key == ModuleType.EM_CIR.ToString())
+            {
+                fileName = "EMCIR Cautions.xlsx";
+            }
+            else if (key == ModuleType.SP72_35.ToString())
+            {
+                fileName = "SP 72-35 Cautions.xlsx";
+            }
+            else if (key == ModuleType.SP72_51.ToString())
+            {
+                fileName = "SP 72-51 Cautions.xlsx";
+            }
+
+            return fileName;
         }
 
         private void Form1_Load(object sender, EventArgs e)

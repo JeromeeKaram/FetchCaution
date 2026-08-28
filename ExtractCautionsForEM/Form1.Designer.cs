@@ -118,9 +118,9 @@ namespace ExtractCautionsForEM
             this.lblHeader.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeader.Location = new System.Drawing.Point(145, 32);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(563, 25);
+            this.lblHeader.Size = new System.Drawing.Size(577, 25);
             this.lblHeader.TabIndex = 11;
-            this.lblHeader.Text = "PW1100G Manual_CAUTION Extraction Tool V1.0";
+            this.lblHeader.Text = "PW1100G Manual_CAUTIONS Extraction Tool V1.0";
             this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
@@ -241,7 +241,7 @@ namespace ExtractCautionsForEM
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "PW1100G Manual_CAUTION Extraction Tool V1.0";
+            this.Text = "PW1100G Manual_CAUTIONS Extraction Tool V1.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
