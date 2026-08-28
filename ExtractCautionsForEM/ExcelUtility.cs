@@ -116,8 +116,8 @@ public static class ExcelUtility
 
         int excelRow = worksheet.Dimension?.End.Row + 1 ?? 2;
 
-        if (sheetName == "All" || sheetName == "All EM" || sheetName == "All CIR" || sheetName == "3Series")
-        {
+        //if (sheetName == "All" || sheetName == "All EM" || sheetName == "All CIR" || sheetName == "3Series")
+        //{
             foreach (var caution in lstCautions)
             {
                 worksheet.Cells[excelRow, 1].Value = caution.DMC;
@@ -126,11 +126,11 @@ public static class ExcelUtility
                 worksheet.Cells[excelRow, 2].Style.WrapText = true;
                 worksheet.Cells[excelRow, 3].Style.WrapText = true;
 
-#if DEBUG
-                var cell = worksheet.Cells[excelRow, 4];
-                cell.Value = caution.NewUrl;
-                cell.Hyperlink = new Uri(caution.NewUrl);
-#endif
+//#if DEBUG
+//                var cell = worksheet.Cells[excelRow, 4];
+//                cell.Value = caution.NewUrl;
+//                cell.Hyperlink = new Uri(caution.NewUrl);
+//#endif
 
                 // Format row
                 worksheet.Row(excelRow).Style.VerticalAlignment =
@@ -138,27 +138,27 @@ public static class ExcelUtility
 
                 excelRow++;
             }
-        }
-        else if (sheetName == "NoCautions")
-        {
-            foreach (var caution in lstCautions)
-            {
-                var cell = worksheet.Cells[excelRow, 1];
-                cell.Value = caution.NewUrl;
-                cell.Hyperlink = new Uri(caution.NewUrl);
+        //}
+        //else if (sheetName == "NoCautions")
+        //{
+        //    foreach (var caution in lstCautions)
+        //    {
+        //        var cell = worksheet.Cells[excelRow, 1];
+        //        cell.Value = caution.NewUrl;
+        //        cell.Hyperlink = new Uri(caution.NewUrl);
 
-                worksheet.Cells[excelRow, 2].Value = caution.Title;
-                worksheet.Cells[excelRow, 3].Value = caution.CautionText;
-                worksheet.Cells[excelRow, 3].Style.WrapText = true;
-                worksheet.Cells[excelRow, 2].Style.WrapText = true;
-                worksheet.Cells[excelRow, 4].Value = caution.DMC;
+        //        worksheet.Cells[excelRow, 2].Value = caution.Title;
+        //        worksheet.Cells[excelRow, 3].Value = caution.CautionText;
+        //        worksheet.Cells[excelRow, 3].Style.WrapText = true;
+        //        worksheet.Cells[excelRow, 2].Style.WrapText = true;
+        //        worksheet.Cells[excelRow, 4].Value = caution.DMC;
 
-                // Format row
-                worksheet.Row(excelRow).Style.VerticalAlignment =
-                    ExcelVerticalAlignment.Center;
+        //        // Format row
+        //        worksheet.Row(excelRow).Style.VerticalAlignment =
+        //            ExcelVerticalAlignment.Center;
 
-                excelRow++;
-            }
-        }
+        //        excelRow++;
+        //    }
+        //}
     }
 }

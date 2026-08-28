@@ -120,7 +120,7 @@ namespace ExtractCautionsForEM
                     {
                         firstSheetName = "EM (All)";
                         secondSheetName = "CIR (All)";
-                        thirdSheetName = "3Series";
+                        thirdSheetName = "EM&CIR (IC-3xx)";
                     }
                     else if (key == ModuleType.SP72_51.ToString())
                     {
